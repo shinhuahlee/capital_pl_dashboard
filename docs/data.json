@@ -1,0 +1,101 @@
+{
+  "updated_at": "2026-06-15 16:00:00",
+  "tf_rights": [
+    {
+      "account": "TF1234567",
+      "account_balance": "1000000",
+      "floating_pl": "15000",
+      "futures_close_pl": "8500",
+      "intraday_unrealized": "6500",
+      "equity": "1023000",
+      "excess_margin": "320000",
+      "initial_margin": "200000",
+      "maintenance_margin": "160000",
+      "risk_indicator": "15.6",
+      "yesterday_balance": "990000",
+      "realized_fee": "1200",
+      "transaction_tax": "800",
+      "available_balance": "720000"
+    }
+  ],
+  "of_rights": [
+    {
+      "account": "OF7654321",
+      "currency": "USD",
+      "account_equity": "50000",
+      "account_balance": "48000",
+      "futures_floating_pl": "2100",
+      "futures_close_pl_today": "900",
+      "intraday_unrealized": "1200",
+      "initial_margin": "15000",
+      "maintenance_margin": "12000",
+      "risk_indicator": "30.2",
+      "withdrawable_margin": "33000",
+      "realized_fee": "250",
+      "previous_day_balance": "47000",
+      "reference_rate": "32.1"
+    }
+  ],
+  "tf_positions": [
+    {
+      "market_type": "TF",
+      "account": "TF1234567",
+      "future_no": "MTX",
+      "buy_sell": "B",
+      "qty": "2",
+      "qty_trade": "0",
+      "avg_price": "22500",
+      "fee": "60",
+      "tax": "4"
+    },
+    {
+      "market_type": "TF",
+      "account": "TF1234567",
+      "future_no": "TX",
+      "buy_sell": "S",
+      "qty": "1",
+      "qty_trade": "0",
+      "avg_price": "22600",
+      "fee": "200",
+      "tax": "13"
+    }
+  ],
+  "of_positions": [
+    {
+      "account": "OF7654321",
+      "exchange_code": "CME",
+      "exchange_name": "芝加哥商業交易所",
+      "product_code_ym": "ESM25",
+      "product_code": "ES",
+      "product_name_ym": "S&P500期貨 2506",
+      "buy_sell": "B",
+      "open_interest": "1",
+      "avg_price": "5400.00",
+      "market_price": "5450.00",
+      "unrealized_pl": "2500",
+      "prev_settlement": "5420.00",
+      "initial_margin": "12000",
+      "is_option": "0",
+      "strike_price": "",
+      "call_put": ""
+    },
+    {
+      "account": "OF7654321",
+      "exchange_code": "CBOT",
+      "exchange_name": "芝加哥期貨交易所",
+      "product_code_ym": "ZBM25",
+      "product_code": "ZB",
+      "product_name_ym": "30年美債期貨 2506",
+      "buy_sell": "S",
+      "open_interest": "1",
+      "avg_price": "118.500",
+      "market_price": "117.800",
+      "unrealized_pl": "700",
+      "prev_settlement": "118.000",
+      "initial_margin": "3500",
+      "is_option": "0",
+      "strike_price": "",
+      "call_put": ""
+    }
+  ]
+}
