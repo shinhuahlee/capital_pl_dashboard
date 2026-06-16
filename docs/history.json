@@ -11,5 +11,18 @@
     "of_equity": 832962.0,
     "of_currency": "NTD(基幣)",
     "of_ref_rate": 1.0
+  },
+  {
+    "date": "2026-06-16",
+    "tf_close_pl": -9990.0,
+    "tf_float_pl": 0.0,
+    "tf_total_pl": -9990.0,
+    "of_close_pl": 229571.0,
+    "of_float_pl": 2871.0,
+    "of_total_pl": 232442.0,
+    "tf_equity": 1480255.0,
+    "of_equity": 820500.0,
+    "of_currency": "NTD(基幣)",
+    "of_ref_rate": 1.0
   }
 ]
