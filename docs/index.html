@@ -146,11 +146,13 @@ function buildHistoryChart(rows) {
   const labels = rows.map(r => r.date.slice(5));   // MM-DD
 
   let tfVals, ofVals, tfLabel, ofLabel;
+  const isEquity = chartMode === 'equity';
+
   if (chartMode === 'total') {
     tfVals  = rows.map(r => r.tf_total_pl);
     ofVals  = rows.map(r => (r.of_total_pl||0) * (r.of_ref_rate||1));
-    tfLabel = '國內總損益 (TWD)';
-    ofLabel = '海外總損益 (換算TWD)';
+    tfLabel = '國內每日損益';
+    ofLabel = '海外每日損益 (換算TWD)';
   } else if (chartMode === 'close') {
     tfVals  = rows.map(r => r.tf_close_pl);
     ofVals  = rows.map(r => (r.of_close_pl||0) * (r.of_ref_rate||1));
@@ -168,32 +170,56 @@ function buildHistoryChart(rows) {
     ofLabel = '海外帳戶權益 (換算TWD)';
   }
 
+  // 累積損益（權益模式不做累積）
+  let cumVals = null;
+  if (!isEquity) {
+    let sum = 0;
+    cumVals = tfVals.map((v, i) => { sum += (v||0) + (ofVals[i]||0); return sum; });
+  }
+
+  const datasets = [
+    {
+      label: tfLabel,
+      data: tfVals,
+      backgroundColor: tfVals.map(v => v >= 0 ? 'rgba(239,68,68,0.75)' : 'rgba(34,197,94,0.75)'),
+      borderRadius: 4,
+      yAxisID: 'y',
+      order: 3,
+    },
+    {
+      label: ofLabel,
+      data: ofVals,
+      type: 'line',
+      borderColor: '#f59e0b',
+      backgroundColor: 'rgba(245,158,11,0.12)',
+      pointRadius: 3,
+      tension: 0.3,
+      fill: false,
+      yAxisID: 'y',
+      order: 2,
+    },
+  ];
+
+  if (cumVals) {
+    datasets.push({
+      label: '累積損益',
+      data: cumVals,
+      type: 'line',
+      borderColor: '#6366f1',
+      backgroundColor: 'rgba(99,102,241,0.08)',
+      pointRadius: 2,
+      borderWidth: 2,
+      tension: 0.3,
+      fill: true,
+      yAxisID: 'y1',
+      order: 1,
+    });
+  }
+
   if (historyChart) historyChart.destroy();
   historyChart = new Chart(document.getElementById('history-chart').getContext('2d'), {
     type: 'bar',
-    data: {
-      labels,
-      datasets: [
-        {
-          label: tfLabel,
-          data: tfVals,
-          backgroundColor: tfVals.map(v => v >= 0 ? 'rgba(239,68,68,0.75)' : 'rgba(34,197,94,0.75)'),
-          borderRadius: 4,
-          order: 2,
-        },
-        {
-          label: ofLabel,
-          data: ofVals,
-          type: 'line',
-          borderColor: '#f59e0b',
-          backgroundColor: 'rgba(245,158,11,0.12)',
-          pointRadius: 3,
-          tension: 0.3,
-          fill: false,
-          order: 1,
-        }
-      ]
-    },
+    data: { labels, datasets },
     options: {
       responsive: true,
       interaction: { mode: 'index', intersect: false },
@@ -206,7 +232,17 @@ function buildHistoryChart(rows) {
         }
       },
       scales: {
-        y: { ticks: { callback: v => v.toLocaleString('zh-TW') } }
+        y:  {
+          position: 'left',
+          title: { display: true, text: '每日損益', font: { size: 11 } },
+          ticks: { callback: v => v.toLocaleString('zh-TW') }
+        },
+        y1: cumVals ? {
+          position: 'right',
+          title: { display: true, text: '累積損益', font: { size: 11 }, color: '#6366f1' },
+          ticks: { color: '#6366f1', callback: v => v.toLocaleString('zh-TW') },
+          grid: { drawOnChartArea: false },
+        } : { display: false },
       }
     }
   });
