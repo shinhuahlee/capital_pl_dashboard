@@ -177,44 +177,65 @@ function buildHistoryChart(rows) {
     cumVals = tfVals.map((v, i) => { sum += (v||0) + (ofVals[i]||0); return sum; });
   }
 
-  const datasets = [
-    {
-      label: tfLabel,
-      data: tfVals,
-      backgroundColor: tfVals.map(v => v >= 0 ? 'rgba(239,68,68,0.75)' : 'rgba(34,197,94,0.75)'),
-      borderRadius: 4,
-      yAxisID: 'y',
-      order: 3,
-    },
-    {
-      label: ofLabel,
-      data: ofVals,
-      type: 'line',
-      borderColor: '#f59e0b',
-      backgroundColor: 'rgba(245,158,11,0.12)',
-      pointRadius: 3,
-      tension: 0.3,
-      fill: false,
-      yAxisID: 'y',
-      order: 2,
-    },
-  ];
-
-  if (cumVals) {
-    datasets.push({
-      label: '累積損益',
-      data: cumVals,
-      type: 'line',
-      borderColor: '#6366f1',
-      backgroundColor: 'rgba(99,102,241,0.08)',
-      pointRadius: 2,
-      borderWidth: 2,
-      tension: 0.3,
-      fill: true,
-      yAxisID: 'y1',
-      order: 1,
-    });
-  }
+  const datasets = isEquity
+    ? [
+        {
+          label: tfLabel,
+          data: tfVals,
+          backgroundColor: tfVals.map(v => v >= 0 ? 'rgba(239,68,68,0.75)' : 'rgba(34,197,94,0.75)'),
+          borderRadius: 4,
+          yAxisID: 'y',
+          order: 2,
+        },
+        {
+          label: ofLabel,
+          data: ofVals,
+          type: 'line',
+          borderColor: '#f59e0b',
+          backgroundColor: 'rgba(245,158,11,0.08)',
+          pointRadius: 3,
+          tension: 0.3,
+          fill: false,
+          yAxisID: 'y',
+          order: 1,
+        },
+      ]
+    : [
+        // 國內棒圖（左軸）
+        {
+          label: tfLabel,
+          data: tfVals,
+          backgroundColor: tfVals.map(v => v >= 0 ? 'rgba(239,68,68,0.85)' : 'rgba(34,197,94,0.85)'),
+          borderRadius: 4,
+          stack: 'daily',
+          yAxisID: 'y',
+          order: 3,
+        },
+        // 海外棒圖（左軸，疊加）
+        {
+          label: ofLabel,
+          data: ofVals,
+          backgroundColor: ofVals.map(v => v >= 0 ? 'rgba(239,68,68,0.4)' : 'rgba(34,197,94,0.4)'),
+          borderRadius: 4,
+          stack: 'daily',
+          yAxisID: 'y',
+          order: 3,
+        },
+        // 累積損益折線（右軸）
+        {
+          label: '累積損益',
+          data: cumVals,
+          type: 'line',
+          borderColor: '#f59e0b',
+          backgroundColor: 'rgba(245,158,11,0.08)',
+          pointRadius: 2,
+          borderWidth: 2.5,
+          tension: 0.3,
+          fill: true,
+          yAxisID: 'y1',
+          order: 1,
+        },
+      ];
 
   if (historyChart) historyChart.destroy();
   historyChart = new Chart(document.getElementById('history-chart').getContext('2d'), {
@@ -232,17 +253,19 @@ function buildHistoryChart(rows) {
         }
       },
       scales: {
-        y:  {
+        y: {
           position: 'left',
+          stacked: !isEquity,
           title: { display: true, text: '每日損益', font: { size: 11 } },
-          ticks: { callback: v => v.toLocaleString('zh-TW') }
+          ticks: { callback: v => v.toLocaleString('zh-TW') },
         },
-        y1: cumVals ? {
+        y1: {
+          display: !isEquity,
           position: 'right',
-          title: { display: true, text: '累積損益', font: { size: 11 }, color: '#6366f1' },
-          ticks: { color: '#6366f1', callback: v => v.toLocaleString('zh-TW') },
+          title: { display: true, text: '累積損益', font: { size: 11 }, color: '#f59e0b' },
+          ticks: { color: '#f59e0b', callback: v => v.toLocaleString('zh-TW') },
           grid: { drawOnChartArea: false },
-        } : { display: false },
+        },
       }
     }
   });
