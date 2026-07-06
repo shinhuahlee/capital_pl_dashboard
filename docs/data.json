@@ -1,7 +1,72 @@
 {
-  "updated_at": "2026-07-06 13:59:28",
-  "tf_rights": [],
-  "of_rights": [],
-  "tf_positions": [],
-  "of_positions": []
+  "updated_at": "2026-07-06 13:43:49",
+  "tf_rights": [
+    {
+      "account": "F0200006398037",
+      "account_balance": "1402857",
+      "floating_pl": "150",
+      "futures_close_pl": "28060",
+      "intraday_unrealized": "150",
+      "equity": "1403007",
+      "excess_margin": "1339407",
+      "initial_margin": "63600",
+      "maintenance_margin": "48800",
+      "risk_indicator": "2206",
+      "yesterday_balance": "1375101",
+      "realized_fee": "160",
+      "transaction_tax": "144",
+      "available_balance": "1339257"
+    }
+  ],
+  "of_rights": [
+    {
+      "account": "F0200006398037",
+      "currency": "NTD(基幣)",
+      "account_equity": "477366",
+      "account_balance": "467988",
+      "futures_floating_pl": "9378",
+      "futures_close_pl_today": "0",
+      "intraday_unrealized": "15197",
+      "initial_margin": "136744",
+      "maintenance_margin": "124304",
+      "risk_indicator": "349.09",
+      "withdrawable_margin": "325425",
+      "realized_fee": "0",
+      "previous_day_balance": "467988",
+      "reference_rate": "1"
+    }
+  ],
+  "tf_positions": [
+    {
+      "market_type": "TF",
+      "account": "F0200006398037",
+      "future_no": "TM07",
+      "buy_sell": "S",
+      "qty": "2",
+      "qty_trade": "0",
+      "avg_price": "46883.50",
+      "fee": "",
+      "tax": ""
+    }
+  ],
+  "of_positions": [
+    {
+      "account": "F0200006398037",
+      "exchange_code": "CME",
+      "exchange_name": "芝加哥商業交易所",
+      "product_code_ym": "MNQ    202609",
+      "product_code": "MNQ",
+      "product_name_ym": "微那斯達克           202609",
+      "buy_sell": "B",
+      "open_interest": "1",
+      "avg_price": "29646.7500",
+      "market_price": "29793.00000",
+      "unrealized_pl": "292.50",
+      "prev_settlement": "29556.00000",
+      "initial_margin": "",
+      "is_option": "OF",
+      "strike_price": "0",
+      "call_put": ""
+    }
+  ]
 }
