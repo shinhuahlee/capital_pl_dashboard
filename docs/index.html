@@ -246,9 +246,32 @@ async function loadAll() {
 
   document.getElementById('updated_at').textContent = '更新：' + d.updated_at;
 
-  historyData = h;
-  buildHistoryChart(h.slice(-60));
-  buildDailyTable(h);
+  // 若 history.json 無資料，用 data.json 合成今日一筆
+  let history = h;
+  if (!history.length && d) {
+    const pf = v => parseFloat(String(v||0).replace(/,/g,'')) || 0;
+    const tfR = d.tf_rights[0] || {}, ofR = d.of_rights[0] || {};
+    const tfClose = pf(tfR.futures_close_pl), tfFloat = pf(tfR.floating_pl);
+    const ofClose = pf(ofR.futures_close_pl_today), ofFloat = pf(ofR.futures_floating_pl);
+    const rate = pf(ofR.reference_rate) || 1;
+    history = [{
+      date:        d.updated_at.slice(0, 10),
+      tf_close_pl: tfClose,
+      tf_float_pl: tfFloat,
+      tf_total_pl: tfClose + tfFloat,
+      of_close_pl: ofClose,
+      of_float_pl: ofFloat,
+      of_total_pl: ofClose + ofFloat,
+      tf_equity:   pf(tfR.equity),
+      of_equity:   pf(ofR.account_equity),
+      of_currency: ofR.currency || '',
+      of_ref_rate: rate,
+    }];
+  }
+
+  historyData = history;
+  buildHistoryChart(history.slice(-60));
+  buildDailyTable(history);
 
   // 摘要卡片
   const tfR = d.tf_rights[0]||{}, ofR = d.of_rights[0]||{};
