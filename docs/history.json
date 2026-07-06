@@ -353,13 +353,13 @@
   {
     "date": "2026-07-06",
     "tf_close_pl": 28060.0,
-    "tf_float_pl": 150.0,
-    "tf_total_pl": 28210.0,
+    "tf_float_pl": -530.0,
+    "tf_total_pl": 27530.0,
     "of_close_pl": 0.0,
-    "of_float_pl": 9378.0,
-    "of_total_pl": 9378.0,
-    "tf_equity": 1403007.0,
-    "of_equity": 477366.0,
+    "of_float_pl": 11121.0,
+    "of_total_pl": 11121.0,
+    "tf_equity": 1402327.0,
+    "of_equity": 479032.0,
     "of_currency": "NTD(基幣)",
     "of_ref_rate": 1.0
   }
