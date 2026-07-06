@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,289 +8,416 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body { font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; }
-    .positive { color: #ef4444; }
-    .negative { color: #22c55e; }
-    .neutral  { color: #6b7280; }
-    table { border-collapse: collapse; width: 100%; }
-    th { background: #1e3a5f; color: #fff; padding: 6px 10px; text-align: left; font-size: 0.75rem; white-space: nowrap; }
-    td { padding: 6px 10px; font-size: 0.8rem; border-bottom: 1px solid #e5e7eb; white-space: nowrap; }
-    @media (min-width: 640px) {
-      th { padding: 8px 12px; font-size: 0.85rem; }
-      td { padding: 7px 12px; font-size: 0.88rem; }
+    body {
+      font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
     }
-    tr:hover td { background: #f0f9ff; }
-    .tag-B { background:#fee2e2; color:#b91c1c; padding:2px 6px; border-radius:9999px; font-size:0.72rem; }
-    .tag-S { background:#dcfce7; color:#15803d; padding:2px 6px; border-radius:9999px; font-size:0.72rem; }
-    .badge { display:inline-block; padding:1px 6px; border-radius:9999px; font-size:0.72rem; }
-    td.sum-col { font-weight: 600; }
-  </style>
-</head>
-<body class="bg-slate-100 min-h-screen p-3 sm:p-6 md:p-8">
 
-<!-- ── 頁首 ── -->
-<header class="flex items-start justify-between mb-4 gap-3">
-  <div>
-    <h1 class="text-xl sm:text-2xl font-bold text-slate-800">損益儀表板</h1>
-    <p class="text-xs sm:text-sm text-slate-500 mt-0.5">群益 API · <span id="updated_at">載入中…</span></p>
-  </div>
-  <button onclick="loadAll()"
-    class="flex-shrink-0 px-3 py-2 sm:px-4 bg-blue-600 text-white rounded-xl text-sm hover:bg-blue-700 active:bg-blue-800 transition min-h-[44px]">
-    ↻ 重新載入
-  </button>
-</header>
+    .positive {
+      color: #ef4444;
+    }
 
-<!-- ── 摘要卡片 ── -->
-<section class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4" id="summary-cards"></section>
+    .negative {
+      color: #22c55e;
+    }
 
-<!-- ── 60天歷史損益圖（總損益） ── -->
-<section class="bg-white rounded-2xl shadow p-3 sm:p-5 mb-4">
-  <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-3">📈 近60天每日總損益</h2>
-  <canvas id="history-chart"></canvas>
-  <p class="text-xs text-slate-400 mt-2">國內損益單位：新台幣元；海外損益已換算台幣（×參考匯率）</p>
-</section>
+    .neutral {
+      color: #6b7280;
+    }
 
-<!-- ── 國內期貨權益 ── -->
-<section class="mb-4">
-  <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🇹🇼 國內期貨權益</h2>
-  <div class="overflow-x-auto rounded-2xl shadow">
-    <table>
-      <thead><tr>
-        <th>帳號</th><th>帳戶餘額</th><th>浮動損益</th>
-        <th>平倉損益</th><th>盤中未實現</th><th>權益數</th>
-        <th>風險%</th><th>可用餘額</th>
-      </tr></thead>
-      <tbody id="tf-rights-body"><tr><td colspan="8" class="text-center py-4 text-slate-400">載入中…</td></tr></tbody>
-    </table>
-  </div>
-</section>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
 
-<!-- ── 海外期貨權益 ── -->
-<section class="mb-4">
-  <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🌍 海外期貨權益</h2>
-  <div class="overflow-x-auto rounded-2xl shadow">
-    <table>
-      <thead><tr>
-        <th>帳號</th><th>幣別</th><th>帳戶權益</th><th>浮動損益</th>
-        <th>今日平倉</th><th>盤中未實現</th><th>風險%</th><th>匯率</th>
-      </tr></thead>
-      <tbody id="of-rights-body"><tr><td colspan="8" class="text-center py-4 text-slate-400">載入中…</td></tr></tbody>
-    </table>
-  </div>
-</section>
+    th {
+      background: #1e3a5f;
+      color: #fff;
+      padding: 6px 10px;
+      text-align: left;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
 
-<!-- ── 持倉兩欄 ── -->
-<div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-4">
-  <section>
-    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">📋 國內期貨未平倉</h2>
-    <div class="overflow-x-auto rounded-2xl shadow">
-      <table>
-        <thead><tr>
-          <th>商品</th><th>買賣</th><th>口數</th><th>均價</th><th>手續費</th><th>交易稅</th><th>未平倉損益</th>
-        </tr></thead>
-        <tbody id="tf-pos-body"><tr><td colspan="7" class="text-center py-4 text-slate-400">載入中…</td></tr></tbody>
-        <tfoot id="tf-pos-foot"></tfoot>
-      </table>
-    </div>
-  </section>
-  <section>
-    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🌐 海外期貨未平倉</h2>
-    <div class="overflow-x-auto rounded-2xl shadow">
-      <table>
-        <thead><tr>
-          <th>商品</th><th>交易所</th><th>買賣</th><th>口數</th><th>均價</th><th>現價</th><th>未平損益</th>
-        </tr></thead>
-        <tbody id="of-pos-body"><tr><td colspan="7" class="text-center py-4 text-slate-400">載入中…</td></tr></tbody>
-      </table>
-    </div>
-  </section>
-</div>
+    td {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      border-bottom: 1px solid #e5e7eb;
+      white-space: nowrap;
+    }
 
-<!-- ── 每日損益明細表 ── -->
-<section class="mb-4">
-  <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🗓️ 每日損益明細（近60天）</h2>
-  <div class="overflow-x-auto rounded-2xl shadow">
-    <table>
-      <thead><tr>
-        <th>日期</th>
-        <th>國內損益</th>
-        <th>海外損益(TWD)</th>
-        <th>合計</th>
-        <th>累積損益</th>
-      </tr></thead>
-      <tbody id="daily-body"><tr><td colspan="5" class="text-center py-4 text-slate-400">載入中…</td></tr></tbody>
-    </table>
-  </div>
-</section>
+    @media (min-width: 640px) {
+      th {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
 
-<footer class="text-center text-xs text-slate-400 py-4">
-  資料由 fetch_pl_data.py 每日寫入，git push 後更新
-</footer>
-
-<script>
-// ── 工具函式 ──
-function clr(v) {
-  const n = parseFloat(String(v).replace(/,/g,''));
-  return isNaN(n)||n===0 ? 'neutral' : n>0 ? 'positive' : 'negative';
-}
-function clrN(n) {
-  return isNaN(n)||n===0 ? 'neutral' : n>0 ? 'positive' : 'negative';
-}
-function fmt(v) {
-  const n = parseFloat(String(v).replace(/,/g,''));
-  return isNaN(n) ? (v||'—') : n.toLocaleString('zh-TW');
-}
-function fmtN(n) {
-  return isNaN(n) ? '—' : n.toLocaleString('zh-TW');
-}
-function bs(v) {
-  return v==='B' ? '<span class="tag-B">買</span>' : '<span class="tag-S">賣</span>';
-}
-
-// ── 圖表 ──
-let historyChart = null;
-let historyData  = [];
-
-function buildHistoryChart(rows) {
-  if (!rows || !rows.length) return;
-  const isMobile = window.innerWidth < 640;
-  const labels = rows.map(r => r.date.slice(5));
-
-  const tfVals = rows.map(r => r.tf_total_pl || 0);
-  const ofVals = rows.map(r => (r.of_total_pl || 0) * (r.of_ref_rate || 1));
-  let cum = 0;
-  const cumVals = tfVals.map((v, i) => { cum += v + ofVals[i]; return cum; });
-
-  const fmtTick = v => {
-    if (isMobile && Math.abs(v) >= 10000) return (v / 1000).toFixed(0) + 'K';
-    return v.toLocaleString('zh-TW');
-  };
-
-  if (historyChart) historyChart.destroy();
-  historyChart = new Chart(document.getElementById('history-chart').getContext('2d'), {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [
-        { label: isMobile ? '國內' : '國內損益',
-          data: tfVals,
-          backgroundColor: tfVals.map(v => v >= 0 ? 'rgba(239,68,68,0.85)' : 'rgba(34,197,94,0.85)'),
-          borderRadius: 3, stack: 'daily', yAxisID: 'y', order: 3 },
-        { label: isMobile ? '海外(TWD)' : '海外損益(換算TWD)',
-          data: ofVals,
-          backgroundColor: ofVals.map(v => v >= 0 ? 'rgba(239,68,68,0.4)' : 'rgba(34,197,94,0.4)'),
-          borderRadius: 3, stack: 'daily', yAxisID: 'y', order: 3 },
-        { label: '累積損益', data: cumVals, type: 'line',
-          borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.08)',
-          pointRadius: isMobile ? 0 : 2, borderWidth: 2, tension: 0.3,
-          fill: true, yAxisID: 'y1', order: 1 },
-      ]
-    },
-    options: {
-      responsive: true,
-      aspectRatio: isMobile ? 1.5 : 2.5,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: { position: 'top', labels: { font: { size: isMobile ? 10 : 12 }, boxWidth: isMobile ? 10 : 16 } },
-        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString('zh-TW')}` } }
-      },
-      scales: {
-        x: { ticks: { font: { size: isMobile ? 9 : 11 }, maxRotation: 45, autoSkip: true, maxTicksLimit: isMobile ? 8 : 30 } },
-        y: { position: 'left', stacked: true,
-          title: { display: !isMobile, text: '每日損益', font: { size: 11 } },
-          ticks: { font: { size: isMobile ? 9 : 11 }, callback: fmtTick } },
-        y1: { position: 'right',
-          title: { display: !isMobile, text: '累積損益', font: { size: 11 }, color: '#f59e0b' },
-          ticks: { color: '#f59e0b', font: { size: isMobile ? 9 : 11 }, callback: fmtTick },
-          grid: { drawOnChartArea: false } },
+      td {
+        padding: 7px 12px;
+        font-size: 0.88rem;
       }
     }
-  });
-}
 
-// ── 每日損益表 ──
-function buildDailyTable(rows) {
-  if (!rows || !rows.length) {
-    document.getElementById('daily-body').innerHTML =
-      '<tr><td colspan="5" class="text-center text-slate-400 py-4">無歷史資料</td></tr>';
-    return;
-  }
-  const recent = rows.slice(-60).reverse();  // 最新在上
-  let cum = rows.slice(-60).reduce((s, r) => s + (r.tf_total_pl||0) + (r.of_total_pl||0)*(r.of_ref_rate||1), 0);
+    tr:hover td {
+      background: #f0f9ff;
+    }
 
-  document.getElementById('daily-body').innerHTML = recent.map(r => {
-    const tf  = r.tf_total_pl || 0;
-    const of  = (r.of_total_pl || 0) * (r.of_ref_rate || 1);
-    const sum = tf + of;
-    const row = `<tr>
+    .tag-B {
+      background: #fee2e2;
+      color: #b91c1c;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+    }
+
+    .tag-S {
+      background: #dcfce7;
+      color: #15803d;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+    }
+
+    td.sum-col {
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-100 min-h-screen p-3 sm:p-6 md:p-8">
+
+  <!-- ── 頁首 ── -->
+  <header class="flex items-start justify-between mb-4 gap-3">
+    <div>
+      <h1 class="text-xl sm:text-2xl font-bold text-slate-800">損益儀表板</h1>
+      <p class="text-xs sm:text-sm text-slate-500 mt-0.5">群益 API · <span id="updated_at">載入中…</span></p>
+    </div>
+    <button onclick="loadAll()"
+      class="flex-shrink-0 px-3 py-2 sm:px-4 bg-blue-600 text-white rounded-xl text-sm hover:bg-blue-700 active:bg-blue-800 transition min-h-[44px]">
+      ↻ 重新載入
+    </button>
+  </header>
+
+  <!-- ── 摘要卡片 ── -->
+  <section class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4" id="summary-cards"></section>
+
+  <!-- ── 60天歷史損益圖（總損益） ── -->
+  <section class="bg-white rounded-2xl shadow p-3 sm:p-5 mb-4">
+    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-3">📈 近60天每日總損益</h2>
+    <canvas id="history-chart"></canvas>
+    <p class="text-xs text-slate-400 mt-2">國內損益單位：新台幣元；海外損益已換算台幣（×參考匯率）</p>
+  </section>
+
+  <!-- ── 國內期貨權益 ── -->
+  <section class="mb-4">
+    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🇹🇼 國內期貨權益</h2>
+    <div class="overflow-x-auto rounded-2xl shadow">
+      <table>
+        <thead>
+          <tr>
+            <th>帳號</th>
+            <th>帳戶餘額</th>
+            <th>浮動損益</th>
+            <th>平倉損益</th>
+            <th>盤中未實現</th>
+            <th>權益數</th>
+            <th>風險%</th>
+            <th>可用餘額</th>
+          </tr>
+        </thead>
+        <tbody id="tf-rights-body">
+          <tr>
+            <td colspan="8" class="text-center py-4 text-slate-400">載入中…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 海外期貨權益 ── -->
+  <section class="mb-4">
+    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🌍 海外期貨權益</h2>
+    <div class="overflow-x-auto rounded-2xl shadow">
+      <table>
+        <thead>
+          <tr>
+            <th>帳號</th>
+            <th>幣別</th>
+            <th>帳戶權益</th>
+            <th>浮動損益</th>
+            <th>今日平倉</th>
+            <th>盤中未實現</th>
+            <th>風險%</th>
+            <th>匯率</th>
+          </tr>
+        </thead>
+        <tbody id="of-rights-body">
+          <tr>
+            <td colspan="8" class="text-center py-4 text-slate-400">載入中…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 持倉兩欄 ── -->
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-4">
+    <section>
+      <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">📋 國內期貨未平倉</h2>
+      <div class="overflow-x-auto rounded-2xl shadow">
+        <table>
+          <thead>
+            <tr>
+              <th>商品</th>
+              <th>買賣</th>
+              <th>口數</th>
+              <th>均價</th>
+              <th>手續費</th>
+              <th>交易稅</th>
+              <th>未平倉損益</th>
+            </tr>
+          </thead>
+          <tbody id="tf-pos-body">
+            <tr>
+              <td colspan="7" class="text-center py-4 text-slate-400">載入中…</td>
+            </tr>
+          </tbody>
+          <tfoot id="tf-pos-foot"></tfoot>
+        </table>
+      </div>
+    </section>
+    <section>
+      <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🌐 海外期貨未平倉</h2>
+      <div class="overflow-x-auto rounded-2xl shadow">
+        <table>
+          <thead>
+            <tr>
+              <th>商品</th>
+              <th>交易所</th>
+              <th>買賣</th>
+              <th>口數</th>
+              <th>均價</th>
+              <th>現價</th>
+              <th>未平損益</th>
+            </tr>
+          </thead>
+          <tbody id="of-pos-body">
+            <tr>
+              <td colspan="7" class="text-center py-4 text-slate-400">載入中…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── 每日損益明細表 ── -->
+  <section class="mb-4">
+    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🗓️ 每日損益明細（近60天）</h2>
+    <div class="overflow-x-auto rounded-2xl shadow">
+      <table>
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>國內損益</th>
+            <th>海外損益(TWD)</th>
+            <th>合計</th>
+            <th>累積損益</th>
+          </tr>
+        </thead>
+        <tbody id="daily-body">
+          <tr>
+            <td colspan="5" class="text-center py-4 text-slate-400">載入中…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="text-center text-xs text-slate-400 py-4">
+    資料由 fetch_pl_data.py 每日寫入，git push 後更新
+  </footer>
+
+  <script>
+    // ── 工具函式 ──
+    function clr(v) {
+      const n = parseFloat(String(v).replace(/,/g, ''));
+      return isNaN(n) || n === 0 ? 'neutral' : n > 0 ? 'positive' : 'negative';
+    }
+    function clrN(n) {
+      return isNaN(n) || n === 0 ? 'neutral' : n > 0 ? 'positive' : 'negative';
+    }
+    function fmt(v) {
+      const n = parseFloat(String(v).replace(/,/g, ''));
+      return isNaN(n) ? (v || '—') : n.toLocaleString('zh-TW');
+    }
+    function fmtN(n) {
+      return isNaN(n) ? '—' : n.toLocaleString('zh-TW');
+    }
+    function bs(v) {
+      return v === 'B' ? '<span class="tag-B">買</span>' : '<span class="tag-S">賣</span>';
+    }
+
+    // ── 圖表 ──
+    let historyChart = null;
+    let historyData = [];
+
+    function buildHistoryChart(rows) {
+      if (!rows || !rows.length) return;
+      const isMobile = window.innerWidth < 640;
+      const labels = rows.map(r => r.date.slice(5));
+
+      const tfVals = rows.map(r => r.tf_total_pl || 0);
+      const ofVals = rows.map(r => (r.of_total_pl || 0) * (r.of_ref_rate || 1));
+      let cum = 0;
+      const cumVals = tfVals.map((v, i) => { cum += v + ofVals[i]; return cum; });
+
+      const fmtTick = v => {
+        if (isMobile && Math.abs(v) >= 10000) return (v / 1000).toFixed(0) + 'K';
+        return v.toLocaleString('zh-TW');
+      };
+
+      if (historyChart) historyChart.destroy();
+      historyChart = new Chart(document.getElementById('history-chart').getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: isMobile ? '國內' : '國內損益',
+              data: tfVals,
+              backgroundColor: tfVals.map(v => v >= 0 ? 'rgba(239,68,68,0.85)' : 'rgba(34,197,94,0.85)'),
+              borderRadius: 3, stack: 'daily', yAxisID: 'y', order: 3
+            },
+            {
+              label: isMobile ? '海外(TWD)' : '海外損益(換算TWD)',
+              data: ofVals,
+              backgroundColor: ofVals.map(v => v >= 0 ? 'rgba(239,68,68,0.4)' : 'rgba(34,197,94,0.4)'),
+              borderRadius: 3, stack: 'daily', yAxisID: 'y', order: 3
+            },
+            {
+              label: '累積損益', data: cumVals, type: 'line',
+              borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.08)',
+              pointRadius: isMobile ? 0 : 2, borderWidth: 2, tension: 0.3,
+              fill: true, yAxisID: 'y1', order: 1
+            },
+          ]
+        },
+        options: {
+          responsive: true,
+          aspectRatio: isMobile ? 1.5 : 2.5,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { position: 'top', labels: { font: { size: isMobile ? 10 : 12 }, boxWidth: isMobile ? 10 : 16 } },
+            tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString('zh-TW')}` } }
+          },
+          scales: {
+            x: { ticks: { font: { size: isMobile ? 9 : 11 }, maxRotation: 45, autoSkip: true, maxTicksLimit: isMobile ? 8 : 30 } },
+            y: {
+              position: 'left', stacked: true,
+              title: { display: !isMobile, text: '每日損益', font: { size: 11 } },
+              ticks: { font: { size: isMobile ? 9 : 11 }, callback: fmtTick }
+            },
+            y1: {
+              position: 'right',
+              title: { display: !isMobile, text: '累積損益', font: { size: 11 }, color: '#f59e0b' },
+              ticks: { color: '#f59e0b', font: { size: isMobile ? 9 : 11 }, callback: fmtTick },
+              grid: { drawOnChartArea: false }
+            },
+          }
+        }
+      });
+    }
+
+    // ── 每日損益表 ──
+    function buildDailyTable(rows) {
+      if (!rows || !rows.length) {
+        document.getElementById('daily-body').innerHTML =
+          '<tr><td colspan="5" class="text-center text-slate-400 py-4">無歷史資料</td></tr>';
+        return;
+      }
+      const recent = rows.slice(-60).reverse();  // 最新在上
+      let cum = rows.slice(-60).reduce((s, r) => s + (r.tf_total_pl || 0) + (r.of_total_pl || 0) * (r.of_ref_rate || 1), 0);
+
+      document.getElementById('daily-body').innerHTML = recent.map(r => {
+        const tf = r.tf_total_pl || 0;
+        const of = (r.of_total_pl || 0) * (r.of_ref_rate || 1);
+        const sum = tf + of;
+        const row = `<tr>
       <td>${r.date}</td>
       <td class="${clrN(tf)}">${fmtN(tf)}</td>
       <td class="${clrN(of)}">${fmtN(Math.round(of))}</td>
       <td class="sum-col ${clrN(sum)}">${fmtN(Math.round(sum))}</td>
       <td class="${clrN(cum)}">${fmtN(Math.round(cum))}</td>
     </tr>`;
-    cum -= sum;
-    return row;
-  }).join('');
-}
+        cum -= sum;
+        return row;
+      }).join('');
+    }
 
 
-// ── 資料載入 ──
-async function loadAll() {
-  document.getElementById('updated_at').textContent = '載入中…';
-  const t = Date.now();
-  const [d, h] = await Promise.all([
-    fetch('data.json?t='+t).then(r=>r.json()).catch(()=>null),
-    fetch('history.json?t='+t).then(r=>r.json()).catch(()=>[]),
-  ]);
-  if (!d) { alert('無法載入 data.json'); return; }
+    // ── 資料載入 ──
+    async function loadAll() {
+      document.getElementById('updated_at').textContent = '載入中…';
+      const t = Date.now();
+      const [d, h] = await Promise.all([
+        fetch('data.json?t=' + t).then(r => r.json()).catch(() => null),
+        fetch('history.json?t=' + t).then(r => r.json()).catch(() => []),
+      ]);
+      if (!d) { alert('無法載入 data.json'); return; }
 
-  document.getElementById('updated_at').textContent = '更新：' + d.updated_at;
+      document.getElementById('updated_at').textContent = '更新：' + d.updated_at;
 
-  // 若 history.json 無資料，用 data.json 合成今日一筆
-  let history = h;
-  if (!history.length && d) {
-    const pf = v => parseFloat(String(v||0).replace(/,/g,'')) || 0;
-    const tfR = d.tf_rights[0] || {}, ofR = d.of_rights[0] || {};
-    const tfClose = pf(tfR.futures_close_pl), tfFloat = pf(tfR.floating_pl);
-    const ofClose = pf(ofR.futures_close_pl_today), ofFloat = pf(ofR.futures_floating_pl);
-    const rate = pf(ofR.reference_rate) || 1;
-    history = [{
-      date:        d.updated_at.slice(0, 10),
-      tf_close_pl: tfClose,
-      tf_float_pl: tfFloat,
-      tf_total_pl: tfClose + tfFloat,
-      of_close_pl: ofClose,
-      of_float_pl: ofFloat,
-      of_total_pl: ofClose + ofFloat,
-      tf_equity:   pf(tfR.equity),
-      of_equity:   pf(ofR.account_equity),
-      of_currency: ofR.currency || '',
-      of_ref_rate: rate,
-    }];
-  }
+      // 若 history.json 無資料，用 data.json 合成今日一筆
+      let history = h;
+      if (!history.length && d) {
+        const pf = v => parseFloat(String(v || 0).replace(/,/g, '')) || 0;
+        const tfR = d.tf_rights[0] || {}, ofR = d.of_rights[0] || {};
+        const tfClose = pf(tfR.futures_close_pl), tfFloat = pf(tfR.floating_pl);
+        const ofClose = pf(ofR.futures_close_pl_today), ofFloat = pf(ofR.futures_floating_pl);
+        const rate = pf(ofR.reference_rate) || 1;
+        history = [{
+          date: d.updated_at.slice(0, 10),
+          tf_close_pl: tfClose,
+          tf_float_pl: tfFloat,
+          tf_total_pl: tfClose + tfFloat,
+          of_close_pl: ofClose,
+          of_float_pl: ofFloat,
+          of_total_pl: ofClose + ofFloat,
+          tf_equity: pf(tfR.equity),
+          of_equity: pf(ofR.account_equity),
+          of_currency: ofR.currency || '',
+          of_ref_rate: rate,
+        }];
+      }
 
-  historyData = history;
-  buildHistoryChart(history.slice(-60));
-  buildDailyTable(history);
+      historyData = history;
+      buildHistoryChart(history.slice(-60));
+      buildDailyTable(history);
 
-  // 摘要卡片
-  const tfR = d.tf_rights[0]||{}, ofR = d.of_rights[0]||{};
-  const cards = [
-    { label:'國內浮動損益', val: tfR.floating_pl,             unit:'元' },
-    { label:'海外浮動損益', val: ofR.futures_floating_pl,     unit: ofR.currency||'' },
-    { label:'國內平倉損益', val: tfR.futures_close_pl,        unit:'元' },
-    { label:'海外今日平倉', val: ofR.futures_close_pl_today,  unit: ofR.currency||'' },
-  ];
-  document.getElementById('summary-cards').innerHTML = cards.map(c => `
+      // 摘要卡片
+      const tfR = d.tf_rights[0] || {}, ofR = d.of_rights[0] || {};
+      const cards = [
+        { label: '國內浮動損益', val: tfR.floating_pl, unit: '元' },
+        { label: '海外浮動損益', val: ofR.futures_floating_pl, unit: ofR.currency || '' },
+        { label: '國內平倉損益', val: tfR.futures_close_pl, unit: '元' },
+        { label: '海外今日平倉', val: ofR.futures_close_pl_today, unit: ofR.currency || '' },
+      ];
+      document.getElementById('summary-cards').innerHTML = cards.map(c => `
     <div class="bg-white rounded-xl shadow p-3 sm:p-5">
       <p class="text-xs text-slate-500 leading-tight">${c.label}</p>
       <p class="text-lg sm:text-2xl font-bold mt-1 ${clr(c.val)}">${fmt(c.val)}<span class="text-xs sm:text-sm font-normal ml-1">${c.unit}</span></p>
     </div>`).join('');
 
-  // 國內權益表
-  document.getElementById('tf-rights-body').innerHTML = d.tf_rights.length
-    ? d.tf_rights.map(r => `<tr>
+      // 國內權益表
+      document.getElementById('tf-rights-body').innerHTML = d.tf_rights.length
+        ? d.tf_rights.map(r => `<tr>
         <td>${r.account}</td>
         <td>${fmt(r.account_balance)}</td>
         <td class="${clr(r.floating_pl)}">${fmt(r.floating_pl)}</td>
@@ -299,11 +427,11 @@ async function loadAll() {
         <td>${r.risk_indicator}%</td>
         <td>${fmt(r.available_balance)}</td>
       </tr>`).join('')
-    : '<tr><td colspan="8" class="text-center text-slate-400 py-4">無資料</td></tr>';
+        : '<tr><td colspan="8" class="text-center text-slate-400 py-4">無資料</td></tr>';
 
-  // 海外權益表
-  document.getElementById('of-rights-body').innerHTML = d.of_rights.length
-    ? d.of_rights.map(r => `<tr>
+      // 海外權益表
+      document.getElementById('of-rights-body').innerHTML = d.of_rights.length
+        ? d.of_rights.map(r => `<tr>
         <td>${r.account}</td><td>${r.currency}</td>
         <td>${fmt(r.account_equity)}</td>
         <td class="${clr(r.futures_floating_pl)}">${fmt(r.futures_floating_pl)}</td>
@@ -312,30 +440,30 @@ async function loadAll() {
         <td>${r.risk_indicator}%</td>
         <td>${r.reference_rate}</td>
       </tr>`).join('')
-    : '<tr><td colspan="8" class="text-center text-slate-400 py-4">無資料</td></tr>';
+        : '<tr><td colspan="8" class="text-center text-slate-400 py-4">無資料</td></tr>';
 
-  // 國內持倉
-  const tfFloat = d.tf_rights[0]?.floating_pl ?? '';
-  document.getElementById('tf-pos-body').innerHTML = d.tf_positions.length
-    ? d.tf_positions.map((p, i) => `<tr>
+      // 國內持倉
+      const tfFloat = d.tf_rights[0]?.floating_pl ?? '';
+      document.getElementById('tf-pos-body').innerHTML = d.tf_positions.length
+        ? d.tf_positions.map((p, i) => `<tr>
         <td class="font-medium">${p.future_no}</td>
         <td>${bs(p.buy_sell)}</td>
         <td>${p.qty} 口</td>
         <td>${fmt(p.avg_price)}</td>
         <td>${fmt(p.fee)}</td>
         <td>${fmt(p.tax)}</td>
-        <td class="${i===0 && tfFloat!=='' ? clr(tfFloat) : 'neutral'} font-semibold">
-          ${i===0 && tfFloat!=='' ? fmt(tfFloat)+' 元' : '—'}
+        <td class="${i === 0 && tfFloat !== '' ? clr(tfFloat) : 'neutral'} font-semibold">
+          ${i === 0 && tfFloat !== '' ? fmt(tfFloat) + ' 元' : '—'}
         </td>
       </tr>`).join('')
-    : '<tr><td colspan="7" class="text-center text-slate-400 py-4">無未平倉</td></tr>';
-  document.getElementById('tf-pos-foot').innerHTML = '';
+        : '<tr><td colspan="7" class="text-center text-slate-400 py-4">無未平倉</td></tr>';
+      document.getElementById('tf-pos-foot').innerHTML = '';
 
-  // 海外持倉
-  document.getElementById('of-pos-body').innerHTML = d.of_positions.length
-    ? d.of_positions.map(p => `<tr>
+      // 海外持倉
+      document.getElementById('of-pos-body').innerHTML = d.of_positions.length
+        ? d.of_positions.map(p => `<tr>
         <td class="font-medium">${p.product_code_ym}
-          ${p.is_option==='1' ? `<span class="badge bg-purple-100 text-purple-700 ml-1">${p.call_put} ${p.strike_price}</span>` : ''}
+          ${p.is_option === '1' ? `<span class="badge bg-purple-100 text-purple-700 ml-1">${p.call_put} ${p.strike_price}</span>` : ''}
         </td>
         <td><span class="text-xs text-slate-500">${p.exchange_code}</span></td>
         <td>${bs(p.buy_sell)}</td>
@@ -344,18 +472,19 @@ async function loadAll() {
         <td>${p.market_price}</td>
         <td class="${clr(p.unrealized_pl)}">${fmt(p.unrealized_pl)}</td>
       </tr>`).join('')
-    : '<tr><td colspan="7" class="text-center text-slate-400 py-4">無未平倉</td></tr>';
-}
+        : '<tr><td colspan="7" class="text-center text-slate-400 py-4">無未平倉</td></tr>';
+    }
 
-loadAll();
+    loadAll();
 
-let resizeTimer;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
-    if (historyData.length) buildHistoryChart(historyData.slice(-60));
-  }, 200);
-});
-</script>
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (historyData.length) buildHistoryChart(historyData.slice(-60));
+      }, 200);
+    });
+  </script>
 </body>
+
 </html>
