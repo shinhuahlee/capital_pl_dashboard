@@ -219,7 +219,16 @@
 
   <!-- ── 每日損益明細表 ── -->
   <section class="mb-4">
-    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🗓️ 每日損益明細（近60天）</h2>
+    <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+      <h2 class="text-sm sm:text-base font-semibold text-slate-700">🗓️ 每日損益明細（今年）</h2>
+      <div class="flex items-center gap-2 text-xs text-slate-500">
+        <button id="daily-prev" onclick="dailyPage(-1)"
+          class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 disabled:opacity-30 disabled:cursor-not-allowed min-h-[36px]">‹ 上頁</button>
+        <span id="daily-pageinfo" class="whitespace-nowrap"></span>
+        <button id="daily-next" onclick="dailyPage(1)"
+          class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 disabled:opacity-30 disabled:cursor-not-allowed min-h-[36px]">下頁 ›</button>
+      </div>
+    </div>
     <div class="overflow-x-auto rounded-2xl shadow">
       <table>
         <thead>
@@ -335,30 +344,59 @@
       });
     }
 
-    // ── 每日損益表 ──
+    // ── 每日損益表（分頁） ──
+    let dailyRows = [];
+    let dailyCurrentPage = 0;
+    const DAILY_PAGE_SIZE = 60;
+
     function buildDailyTable(rows) {
       if (!rows || !rows.length) {
         document.getElementById('daily-body').innerHTML =
           '<tr><td colspan="5" class="text-center text-slate-400 py-4">無歷史資料</td></tr>';
+        document.getElementById('daily-pageinfo').textContent = '';
         return;
       }
-      const recent = rows.slice(-60).reverse();  // 最新在上
-      let cum = rows.slice(-60).reduce((s, r) => s + (r.tf_total_pl || 0) + (r.of_total_pl || 0) * (r.of_ref_rate || 1), 0);
+      const thisYear = new Date().getFullYear().toString();
+      dailyRows = rows.filter(r => r.date.startsWith(thisYear)).reverse(); // 最新在上
+      dailyCurrentPage = 0;
+      renderDailyPage();
+    }
 
-      document.getElementById('daily-body').innerHTML = recent.map(r => {
+    function dailyPage(delta) {
+      const totalPages = Math.ceil(dailyRows.length / DAILY_PAGE_SIZE);
+      dailyCurrentPage = Math.max(0, Math.min(dailyCurrentPage + delta, totalPages - 1));
+      renderDailyPage();
+    }
+
+    function renderDailyPage() {
+      const totalPages = Math.ceil(dailyRows.length / DAILY_PAGE_SIZE) || 1;
+      const start = dailyCurrentPage * DAILY_PAGE_SIZE;
+      const page = dailyRows.slice(start, start + DAILY_PAGE_SIZE);
+
+      // 全年累積總和；本頁首行的累積 = 全年總 - 頁前各行之和
+      const allTotal = dailyRows.reduce((s, r) => s + (r.tf_total_pl || 0) + (r.of_total_pl || 0) * (r.of_ref_rate || 1), 0);
+      const beforePage = dailyRows.slice(0, start).reduce((s, r) => s + (r.tf_total_pl || 0) + (r.of_total_pl || 0) * (r.of_ref_rate || 1), 0);
+      let cum = allTotal - beforePage;
+
+      document.getElementById('daily-body').innerHTML = page.map(r => {
         const tf = r.tf_total_pl || 0;
         const of = (r.of_total_pl || 0) * (r.of_ref_rate || 1);
         const sum = tf + of;
         const row = `<tr>
-      <td>${r.date}</td>
-      <td class="${clrN(tf)}">${fmtN(tf)}</td>
-      <td class="${clrN(of)}">${fmtN(Math.round(of))}</td>
-      <td class="sum-col ${clrN(sum)}">${fmtN(Math.round(sum))}</td>
-      <td class="${clrN(cum)}">${fmtN(Math.round(cum))}</td>
-    </tr>`;
+          <td>${r.date}</td>
+          <td class="${clrN(tf)}">${fmtN(tf)}</td>
+          <td class="${clrN(of)}">${fmtN(Math.round(of))}</td>
+          <td class="sum-col ${clrN(sum)}">${fmtN(Math.round(sum))}</td>
+          <td class="${clrN(cum)}">${fmtN(Math.round(cum))}</td>
+        </tr>`;
         cum -= sum;
         return row;
       }).join('');
+
+      document.getElementById('daily-pageinfo').textContent =
+        `第 ${dailyCurrentPage + 1} / ${totalPages} 頁（共 ${dailyRows.length} 天）`;
+      document.getElementById('daily-prev').disabled = dailyCurrentPage === 0;
+      document.getElementById('daily-next').disabled = dailyCurrentPage >= totalPages - 1;
     }
 
 
