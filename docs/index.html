@@ -116,7 +116,7 @@
 
   <!-- ── 國內期貨權益 ── -->
   <section class="mb-4">
-    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🇹🇼 國內期貨權益</h2>
+    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🇹🇼 國內期貨損益</h2>
     <div class="overflow-x-auto rounded-2xl shadow">
       <table>
         <thead>
@@ -127,13 +127,12 @@
             <th>平倉損益</th>
             <th>盤中未實現</th>
             <th>權益數</th>
-            <th>風險%</th>
             <th>可用餘額</th>
           </tr>
         </thead>
         <tbody id="tf-rights-body">
           <tr>
-            <td colspan="8" class="text-center py-4 text-slate-400">載入中…</td>
+            <td colspan="7" class="text-center py-4 text-slate-400">載入中…</td>
           </tr>
         </tbody>
       </table>
@@ -142,24 +141,22 @@
 
   <!-- ── 海外期貨權益 ── -->
   <section class="mb-4">
-    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🌍 海外期貨權益</h2>
+    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">🌍 海外期貨損益</h2>
     <div class="overflow-x-auto rounded-2xl shadow">
       <table>
         <thead>
           <tr>
             <th>帳號</th>
             <th>幣別</th>
-            <th>帳戶權益</th>
+            <th>帳戶損益</th>
             <th>浮動損益</th>
             <th>今日平倉</th>
             <th>盤中未實現</th>
-            <th>風險%</th>
-            <th>匯率</th>
           </tr>
         </thead>
         <tbody id="of-rights-body">
           <tr>
-            <td colspan="8" class="text-center py-4 text-slate-400">載入中…</td>
+            <td colspan="6" class="text-center py-4 text-slate-400">載入中…</td>
           </tr>
         </tbody>
       </table>
@@ -178,14 +175,12 @@
               <th>買賣</th>
               <th>口數</th>
               <th>均價</th>
-              <th>手續費</th>
-              <th>交易稅</th>
               <th>未平倉損益</th>
             </tr>
           </thead>
           <tbody id="tf-pos-body">
             <tr>
-              <td colspan="7" class="text-center py-4 text-slate-400">載入中…</td>
+              <td colspan="5" class="text-center py-4 text-slate-400">載入中…</td>
             </tr>
           </tbody>
           <tfoot id="tf-pos-foot"></tfoot>
@@ -223,10 +218,12 @@
       <h2 class="text-sm sm:text-base font-semibold text-slate-700">🗓️ 每日損益明細（今年）</h2>
       <div class="flex items-center gap-2 text-xs text-slate-500">
         <button id="daily-prev" onclick="dailyPage(-1)"
-          class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 disabled:opacity-30 disabled:cursor-not-allowed min-h-[36px]">‹ 上頁</button>
+          class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 disabled:opacity-30 disabled:cursor-not-allowed min-h-[36px]">‹
+          上頁</button>
         <span id="daily-pageinfo" class="whitespace-nowrap"></span>
         <button id="daily-next" onclick="dailyPage(1)"
-          class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 disabled:opacity-30 disabled:cursor-not-allowed min-h-[36px]">下頁 ›</button>
+          class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 disabled:opacity-30 disabled:cursor-not-allowed min-h-[36px]">下頁
+          ›</button>
       </div>
     </div>
     <div class="overflow-x-auto rounded-2xl shadow">
@@ -462,10 +459,9 @@
         <td class="${clr(r.futures_close_pl)}">${fmt(r.futures_close_pl)}</td>
         <td class="${clr(r.intraday_unrealized)}">${fmt(r.intraday_unrealized)}</td>
         <td>${fmt(r.equity)}</td>
-        <td>${r.risk_indicator}%</td>
         <td>${fmt(r.available_balance)}</td>
       </tr>`).join('')
-        : '<tr><td colspan="8" class="text-center text-slate-400 py-4">無資料</td></tr>';
+        : '<tr><td colspan="7" class="text-center text-slate-400 py-4">無資料</td></tr>';
 
       // 海外權益表
       document.getElementById('of-rights-body').innerHTML = d.of_rights.length
@@ -475,10 +471,8 @@
         <td class="${clr(r.futures_floating_pl)}">${fmt(r.futures_floating_pl)}</td>
         <td class="${clr(r.futures_close_pl_today)}">${fmt(r.futures_close_pl_today)}</td>
         <td class="${clr(r.intraday_unrealized)}">${fmt(r.intraday_unrealized)}</td>
-        <td>${r.risk_indicator}%</td>
-        <td>${r.reference_rate}</td>
       </tr>`).join('')
-        : '<tr><td colspan="8" class="text-center text-slate-400 py-4">無資料</td></tr>';
+        : '<tr><td colspan="6" class="text-center text-slate-400 py-4">無資料</td></tr>';
 
       // 國內持倉
       const tfFloat = d.tf_rights[0]?.floating_pl ?? '';
@@ -488,13 +482,11 @@
         <td>${bs(p.buy_sell)}</td>
         <td>${p.qty} 口</td>
         <td>${fmt(p.avg_price)}</td>
-        <td>${fmt(p.fee)}</td>
-        <td>${fmt(p.tax)}</td>
         <td class="${i === 0 && tfFloat !== '' ? clr(tfFloat) : 'neutral'} font-semibold">
           ${i === 0 && tfFloat !== '' ? fmt(tfFloat) + ' 元' : '—'}
         </td>
       </tr>`).join('')
-        : '<tr><td colspan="7" class="text-center text-slate-400 py-4">無未平倉</td></tr>';
+        : '<tr><td colspan="5" class="text-center text-slate-400 py-4">無未平倉</td></tr>';
       document.getElementById('tf-pos-foot').innerHTML = '';
 
       // 海外持倉
