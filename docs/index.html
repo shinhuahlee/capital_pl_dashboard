@@ -148,7 +148,7 @@
           <tr>
             <th>帳號</th>
             <th>幣別</th>
-            <th>帳戶損益</th>
+            <th>帳戶權益</th>
             <th>浮動損益</th>
             <th>今日平倉</th>
             <th>盤中未實現</th>
@@ -198,13 +198,12 @@
               <th>買賣</th>
               <th>口數</th>
               <th>均價</th>
-              <th>現價</th>
               <th>未平損益</th>
             </tr>
           </thead>
           <tbody id="of-pos-body">
             <tr>
-              <td colspan="7" class="text-center py-4 text-slate-400">載入中…</td>
+              <td colspan="6" class="text-center py-4 text-slate-400">載入中…</td>
             </tr>
           </tbody>
         </table>
@@ -235,10 +234,12 @@
     </div>
     <div class="flex items-center justify-center gap-3 mt-3 text-xs text-slate-500">
       <button id="daily-prev" onclick="dailyPage(-1)"
-        class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 disabled:opacity-30 disabled:cursor-not-allowed min-h-[36px]">‹ 上頁</button>
+        class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 disabled:opacity-30 disabled:cursor-not-allowed min-h-[36px]">‹
+        上頁</button>
       <span id="daily-pageinfo" class="whitespace-nowrap"></span>
       <button id="daily-next" onclick="dailyPage(1)"
-        class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 disabled:opacity-30 disabled:cursor-not-allowed min-h-[36px]">下頁 ›</button>
+        class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 disabled:opacity-30 disabled:cursor-not-allowed min-h-[36px]">下頁
+        ›</button>
     </div>
   </section>
 
@@ -495,10 +496,9 @@
         <td>${bs(p.buy_sell)}</td>
         <td>${p.open_interest} 口</td>
         <td>${p.avg_price}</td>
-        <td>${p.market_price}</td>
         <td class="${clr(p.unrealized_pl)}">${fmt(p.unrealized_pl)}</td>
       </tr>`).join('')
-        : '<tr><td colspan="7" class="text-center text-slate-400 py-4">無未平倉</td></tr>';
+        : '<tr><td colspan="6" class="text-center text-slate-400 py-4">無未平倉</td></tr>';
     }
 
     loadAll();
