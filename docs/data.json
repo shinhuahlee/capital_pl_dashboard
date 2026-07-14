@@ -1,38 +1,38 @@
 {
-  "updated_at": "2026-07-14 05:00:35",
+  "updated_at": "2026-07-14 15:30:33",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1398773",
-      "floating_pl": "14730",
-      "futures_close_pl": "-13380",
-      "intraday_unrealized": "15930",
-      "equity": "1413503",
-      "excess_margin": "1222703",
-      "initial_margin": "190800",
-      "maintenance_margin": "146400",
-      "risk_indicator": "732",
-      "yesterday_balance": "1412647",
-      "realized_fee": "260",
-      "transaction_tax": "234",
-      "available_balance": "1206773"
+      "account_balance": "1444599",
+      "floating_pl": "-30730",
+      "futures_close_pl": "56700",
+      "intraday_unrealized": "2680",
+      "equity": "1413869",
+      "excess_margin": "1286669",
+      "initial_margin": "127200",
+      "maintenance_margin": "97600",
+      "risk_indicator": "1109",
+      "yesterday_balance": "1398849",
+      "realized_fee": "500",
+      "transaction_tax": "450",
+      "available_balance": "1283989"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "408559",
-      "account_balance": "408559",
+      "account_equity": "395299",
+      "account_balance": "395299",
       "futures_floating_pl": "0",
-      "futures_close_pl_today": "-45199",
+      "futures_close_pl_today": "-13210",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "408559",
-      "realized_fee": "193",
-      "previous_day_balance": "453951",
+      "withdrawable_margin": "395299",
+      "realized_fee": "97",
+      "previous_day_balance": "408605",
       "reference_rate": "1"
     }
   ],
@@ -42,9 +42,9 @@
       "account": "F0200006398037",
       "future_no": "TM07",
       "buy_sell": "S",
-      "qty": "6",
+      "qty": "4",
       "qty_trade": "0",
-      "avg_price": "45317.50",
+      "avg_price": "43954.75",
       "fee": "",
       "tax": ""
     }

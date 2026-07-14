@@ -755,14 +755,14 @@
   },
   {
     "date": "2026-07-14",
-    "tf_close_pl": -13380.0,
-    "tf_float_pl": 14730.0,
-    "tf_total_pl": 1350.0,
-    "of_close_pl": -45199.0,
+    "tf_close_pl": 56700.0,
+    "tf_float_pl": -30730.0,
+    "tf_total_pl": 25970.0,
+    "of_close_pl": -13210.0,
     "of_float_pl": 0.0,
-    "of_total_pl": -45199.0,
-    "tf_equity": 1413503.0,
-    "of_equity": 408559.0,
+    "of_total_pl": -13210.0,
+    "tf_equity": 1413869.0,
+    "of_equity": 395299.0,
     "of_currency": "NTD(基幣)",
     "of_ref_rate": 1.0
   }
