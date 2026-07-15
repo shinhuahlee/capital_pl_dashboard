@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-07-15 05:00:34",
+  "updated_at": "2026-07-15 15:30:33",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1444599",
-      "floating_pl": "-43050",
-      "futures_close_pl": "56700",
+      "account_balance": "1375629",
+      "floating_pl": "0",
+      "futures_close_pl": "-67210",
       "intraday_unrealized": "0",
-      "equity": "1401549",
-      "excess_margin": "1274349",
-      "initial_margin": "127200",
-      "maintenance_margin": "97600",
-      "risk_indicator": "1109",
-      "yesterday_balance": "1398849",
-      "realized_fee": "500",
-      "transaction_tax": "450",
-      "available_balance": "1274349"
+      "equity": "1375629",
+      "excess_margin": "1375629",
+      "initial_margin": "0",
+      "maintenance_margin": "0",
+      "risk_indicator": "100",
+      "yesterday_balance": "1444599",
+      "realized_fee": "300",
+      "transaction_tax": "270",
+      "available_balance": "1375629"
     }
   ],
   "of_rights": [
@@ -25,29 +25,17 @@
       "account_equity": "395340",
       "account_balance": "395340",
       "futures_floating_pl": "0",
-      "futures_close_pl_today": "-13214",
+      "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
       "withdrawable_margin": "395340",
-      "realized_fee": "97",
-      "previous_day_balance": "408651",
+      "realized_fee": "0",
+      "previous_day_balance": "395340",
       "reference_rate": "1"
     }
   ],
-  "tf_positions": [
-    {
-      "market_type": "TF",
-      "account": "F0200006398037",
-      "future_no": "TM07",
-      "buy_sell": "S",
-      "qty": "4",
-      "qty_trade": "0",
-      "avg_price": "43954.75",
-      "fee": "",
-      "tax": ""
-    }
-  ],
+  "tf_positions": [],
   "of_positions": []
 }
