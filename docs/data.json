@@ -1,38 +1,38 @@
 {
-  "updated_at": "2026-07-17 05:00:34",
+  "updated_at": "2026-07-17 15:30:33",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1393883",
-      "floating_pl": "-4600",
-      "futures_close_pl": "18520",
+      "account_balance": "1488017",
+      "floating_pl": "29240",
+      "futures_close_pl": "113680",
       "intraday_unrealized": "0",
-      "equity": "1389283",
-      "excess_margin": "1325683",
-      "initial_margin": "63600",
-      "maintenance_margin": "48800",
-      "risk_indicator": "2159",
-      "yesterday_balance": "1375629",
-      "realized_fee": "140",
-      "transaction_tax": "126",
-      "available_balance": "1325683"
+      "equity": "1517257",
+      "excess_margin": "1390057",
+      "initial_margin": "127200",
+      "maintenance_margin": "97600",
+      "risk_indicator": "1203",
+      "yesterday_balance": "1375591",
+      "realized_fee": "660",
+      "transaction_tax": "594",
+      "available_balance": "1390057"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "372259",
-      "account_balance": "372259",
+      "account_equity": "372586",
+      "account_balance": "372586",
       "futures_floating_pl": "0",
-      "futures_close_pl_today": "-23256",
+      "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "372259",
-      "realized_fee": "97",
-      "previous_day_balance": "395611",
+      "withdrawable_margin": "372586",
+      "realized_fee": "0",
+      "previous_day_balance": "372586",
       "reference_rate": "1"
     }
   ],
@@ -42,9 +42,9 @@
       "account": "F0200006398037",
       "future_no": "TM08",
       "buy_sell": "S",
-      "qty": "2",
+      "qty": "4",
       "qty_trade": "0",
-      "avg_price": "44484.00",
+      "avg_price": "43674.00",
       "fee": "",
       "tax": ""
     }
