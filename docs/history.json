@@ -642,8 +642,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 95001.0,
+    "of_daily_pl_equity": 232962.0
   },
   {
     "date": "2026-06-16",
