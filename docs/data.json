@@ -1,41 +1,74 @@
 {
-  "updated_at": "2026-07-21 05:00:36",
+  "updated_at": "2026-07-21 15:30:36",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1486673",
-      "floating_pl": "0",
-      "futures_close_pl": "-930",
-      "intraday_unrealized": "0",
-      "equity": "1486673",
-      "excess_margin": "1486673",
-      "initial_margin": "0",
-      "maintenance_margin": "0",
-      "risk_indicator": "100",
-      "yesterday_balance": "1488017",
-      "realized_fee": "220",
-      "transaction_tax": "194",
-      "available_balance": "1486673"
+      "account_balance": "1480279",
+      "floating_pl": "5080",
+      "futures_close_pl": "-6090",
+      "intraday_unrealized": "900",
+      "equity": "1485359",
+      "excess_margin": "1421759",
+      "initial_margin": "63600",
+      "maintenance_margin": "48800",
+      "risk_indicator": "2334",
+      "yesterday_balance": "1486673",
+      "realized_fee": "160",
+      "transaction_tax": "144",
+      "available_balance": "1420859",
+      "deposit_withdrawal": "0"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "350629",
-      "account_balance": "350629",
-      "futures_floating_pl": "0",
-      "futures_close_pl_today": "-4016",
-      "intraday_unrealized": "0",
-      "initial_margin": "0",
-      "maintenance_margin": "0",
-      "risk_indicator": "",
-      "withdrawable_margin": "350629",
-      "realized_fee": "48",
-      "previous_day_balance": "354694",
-      "reference_rate": "1"
+      "account_equity": "363691",
+      "account_balance": "351030",
+      "futures_floating_pl": "12661",
+      "futures_close_pl_today": "0",
+      "intraday_unrealized": "12661",
+      "initial_margin": "136756",
+      "maintenance_margin": "124306",
+      "risk_indicator": "265.94",
+      "withdrawable_margin": "214274",
+      "realized_fee": "49",
+      "previous_day_balance": "351079",
+      "reference_rate": "1",
+      "deposit_withdrawal": "0"
     }
   ],
-  "tf_positions": [],
-  "of_positions": []
+  "tf_positions": [
+    {
+      "market_type": "TF",
+      "account": "F0200006398037",
+      "future_no": "TM08",
+      "buy_sell": "B",
+      "qty": "2",
+      "qty_trade": "0",
+      "avg_price": "44166.00",
+      "fee": "",
+      "tax": ""
+    }
+  ],
+  "of_positions": [
+    {
+      "account": "F0200006398037",
+      "exchange_code": "CME",
+      "exchange_name": "芝加哥商業交易所",
+      "product_code_ym": "MNQ    202609",
+      "product_code": "MNQ",
+      "product_name_ym": "微那斯達克           202609",
+      "buy_sell": "B",
+      "open_interest": "1",
+      "avg_price": "28896.5000",
+      "market_price": "29091.75000",
+      "unrealized_pl": "390.50",
+      "prev_settlement": "28778.75000",
+      "initial_margin": "",
+      "is_option": "OF",
+      "strike_price": "0",
+      "call_put": ""
+    }
+  ]
 }
