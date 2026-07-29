@@ -1,41 +1,41 @@
 {
-  "updated_at": "2026-07-29 05:00:36",
+  "updated_at": "2026-07-29 15:30:33",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1513283",
-      "floating_pl": "-21980",
-      "futures_close_pl": "61330",
+      "account_balance": "1584993",
+      "floating_pl": "-20850",
+      "futures_close_pl": "118190",
       "intraday_unrealized": "0",
-      "equity": "1491303",
-      "excess_margin": "1300503",
+      "equity": "1564143",
+      "excess_margin": "1373343",
       "initial_margin": "190800",
       "maintenance_margin": "146400",
-      "risk_indicator": "801",
-      "yesterday_balance": "1453367",
-      "realized_fee": "780",
-      "transaction_tax": "634",
-      "available_balance": "1300503",
-      "deposit_withdrawal": "0"
+      "risk_indicator": "829",
+      "yesterday_balance": "1497667",
+      "realized_fee": "480",
+      "transaction_tax": "384",
+      "available_balance": "1373343",
+      "deposit_withdrawal": "-30000"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "261269",
-      "account_balance": "261269",
+      "account_equity": "261220",
+      "account_balance": "261220",
       "futures_floating_pl": "0",
-      "futures_close_pl_today": "-31596",
+      "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "261269",
-      "realized_fee": "146",
-      "previous_day_balance": "293255",
+      "withdrawable_margin": "261220",
+      "realized_fee": "0",
+      "previous_day_balance": "261220",
       "reference_rate": "1",
-      "deposit_withdrawal": "-243"
+      "deposit_withdrawal": "0"
     }
   ],
   "tf_positions": [
@@ -46,7 +46,7 @@
       "buy_sell": "S",
       "qty": "6",
       "qty_trade": "0",
-      "avg_price": "41514.66",
+      "avg_price": "40276.50",
       "fee": "",
       "tax": ""
     }
