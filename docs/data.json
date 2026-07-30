@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-07-30 15:30:32",
+  "updated_at": "2026-07-31 05:00:36",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1550643",
-      "floating_pl": "49130",
-      "futures_close_pl": "-34170",
-      "intraday_unrealized": "24120",
-      "equity": "1599773",
-      "excess_margin": "1408973",
-      "initial_margin": "190800",
-      "maintenance_margin": "146400",
-      "risk_indicator": "826",
+      "account_balance": "1499965",
+      "floating_pl": "0",
+      "futures_close_pl": "-84740",
+      "intraday_unrealized": "0",
+      "equity": "1499965",
+      "excess_margin": "1499965",
+      "initial_margin": "0",
+      "maintenance_margin": "0",
+      "risk_indicator": "100",
       "yesterday_balance": "1584993",
-      "realized_fee": "100",
-      "transaction_tax": "80",
-      "available_balance": "1384853",
+      "realized_fee": "160",
+      "transaction_tax": "128",
+      "available_balance": "1499965",
       "deposit_withdrawal": "0"
     }
   ],
@@ -23,33 +23,21 @@
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "234332",
-      "account_balance": "234332",
+      "account_equity": "234284",
+      "account_balance": "234284",
       "futures_floating_pl": "0",
       "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "234332",
+      "withdrawable_margin": "234284",
       "realized_fee": "0",
-      "previous_day_balance": "234332",
+      "previous_day_balance": "234284",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
   ],
-  "tf_positions": [
-    {
-      "market_type": "TF",
-      "account": "F0200006398037",
-      "future_no": "TM08",
-      "buy_sell": "S",
-      "qty": "6",
-      "qty_trade": "0",
-      "avg_price": "40702.83",
-      "fee": "",
-      "tax": ""
-    }
-  ],
+  "tf_positions": [],
   "of_positions": []
 }
