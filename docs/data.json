@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-07-30 05:00:33",
+  "updated_at": "2026-07-30 15:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1584993",
-      "floating_pl": "38610",
-      "futures_close_pl": "118190",
-      "intraday_unrealized": "41700",
-      "equity": "1623603",
-      "excess_margin": "1432803",
+      "account_balance": "1550643",
+      "floating_pl": "49130",
+      "futures_close_pl": "-34170",
+      "intraday_unrealized": "24120",
+      "equity": "1599773",
+      "excess_margin": "1408973",
       "initial_margin": "190800",
       "maintenance_margin": "146400",
-      "risk_indicator": "829",
-      "yesterday_balance": "1497667",
-      "realized_fee": "480",
-      "transaction_tax": "384",
-      "available_balance": "1391103",
-      "deposit_withdrawal": "-30000"
+      "risk_indicator": "826",
+      "yesterday_balance": "1584993",
+      "realized_fee": "100",
+      "transaction_tax": "80",
+      "available_balance": "1384853",
+      "deposit_withdrawal": "0"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "234078",
-      "account_balance": "234078",
+      "account_equity": "234332",
+      "account_balance": "234332",
       "futures_floating_pl": "0",
-      "futures_close_pl_today": "-27029",
+      "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "234078",
-      "realized_fee": "97",
-      "previous_day_balance": "261204",
+      "withdrawable_margin": "234332",
+      "realized_fee": "0",
+      "previous_day_balance": "234332",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -46,7 +46,7 @@
       "buy_sell": "S",
       "qty": "6",
       "qty_trade": "0",
-      "avg_price": "40276.50",
+      "avg_price": "40702.83",
       "fee": "",
       "tax": ""
     }
