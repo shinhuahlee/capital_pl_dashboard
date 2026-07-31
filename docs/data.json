@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-07-31 05:00:36",
+  "updated_at": "2026-07-31 15:30:33",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1499965",
-      "floating_pl": "0",
-      "futures_close_pl": "-84740",
-      "intraday_unrealized": "0",
-      "equity": "1499965",
-      "excess_margin": "1499965",
-      "initial_margin": "0",
-      "maintenance_margin": "0",
-      "risk_indicator": "100",
-      "yesterday_balance": "1584993",
-      "realized_fee": "160",
-      "transaction_tax": "128",
-      "available_balance": "1499965",
+      "account_balance": "1504013",
+      "floating_pl": "13030",
+      "futures_close_pl": "-46180",
+      "intraday_unrealized": "4000",
+      "equity": "1517043",
+      "excess_margin": "1389843",
+      "initial_margin": "127200",
+      "maintenance_margin": "97600",
+      "risk_indicator": "1189",
+      "yesterday_balance": "1550643",
+      "realized_fee": "240",
+      "transaction_tax": "210",
+      "available_balance": "1385843",
       "deposit_withdrawal": "0"
     }
   ],
@@ -23,21 +23,33 @@
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "234284",
-      "account_balance": "234284",
+      "account_equity": "233962",
+      "account_balance": "233962",
       "futures_floating_pl": "0",
       "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "234284",
+      "withdrawable_margin": "233962",
       "realized_fee": "0",
-      "previous_day_balance": "234284",
+      "previous_day_balance": "233962",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
   ],
-  "tf_positions": [],
+  "tf_positions": [
+    {
+      "market_type": "TF",
+      "account": "F0200006398037",
+      "future_no": "TM08",
+      "buy_sell": "B",
+      "qty": "4",
+      "qty_trade": "0",
+      "avg_price": "43501.25",
+      "fee": "",
+      "tax": ""
+    }
+  ],
   "of_positions": []
 }
