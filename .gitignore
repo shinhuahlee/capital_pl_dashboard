@@ -2,3 +2,7 @@ fetch_pl_data.py
 F0200006398037_*
 SKDLLPythonTester/
 _tmp_headers.json
+*出入金*.xls
+deposit_withdrawal_log.json
+settlement_log.json
+__pycache__/

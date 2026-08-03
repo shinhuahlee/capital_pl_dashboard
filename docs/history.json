@@ -13,8 +13,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 84.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-04-16",
@@ -30,8 +30,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -1478.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-04-17",
@@ -47,14 +47,14 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -5478.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-04-20",
-    "tf_close_pl": -1986.0,
+    "tf_close_pl": -1968.0,
     "tf_float_pl": 0.0,
-    "tf_total_pl": -1986.0,
+    "tf_total_pl": -1968.0,
     "of_close_pl": 0.0,
     "of_float_pl": 0.0,
     "of_total_pl": 0.0,
@@ -64,8 +64,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -1968.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-04-21",
@@ -81,8 +81,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -4144.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-04-22",
@@ -98,14 +98,14 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -3706.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-04-23",
-    "tf_close_pl": 20662.0,
+    "tf_close_pl": 21102.0,
     "tf_float_pl": 0.0,
-    "tf_total_pl": 20662.0,
+    "tf_total_pl": 21102.0,
     "of_close_pl": 0.0,
     "of_float_pl": 0.0,
     "of_total_pl": 0.0,
@@ -115,8 +115,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 21102.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-04-27",
@@ -132,8 +132,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 19988.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-04-29",
@@ -149,8 +149,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 3126.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-05",
@@ -166,8 +166,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 19978.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-06",
@@ -183,8 +183,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 31424.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-07",
@@ -200,8 +200,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 86370.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-08",
@@ -215,10 +215,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -30400.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -1600.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-11",
@@ -232,10 +232,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -15000.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -21176.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-12",
@@ -251,8 +251,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 2260.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-13",
@@ -266,10 +266,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
-    "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_deposit_withdrawal": -600000.0,
+    "of_deposit_withdrawal": 600000.0,
+    "tf_daily_pl_equity": -7792.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-14",
@@ -283,10 +283,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -2160.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": -110.27
   },
   {
     "date": "2026-05-15",
@@ -302,8 +302,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": -24948.14
   },
   {
     "date": "2026-05-18",
@@ -319,8 +319,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": -29321.08
   },
   {
     "date": "2026-05-19",
@@ -336,8 +336,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": -33311.62
   },
   {
     "date": "2026-05-20",
@@ -353,8 +353,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": 47.47
   },
   {
     "date": "2026-05-21",
@@ -370,8 +370,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 70888.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-22",
@@ -387,8 +387,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 1722.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-25",
@@ -402,10 +402,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -14500.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 164571.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-05-26",
@@ -419,10 +419,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -50000.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": 57337.44
   },
   {
     "date": "2026-05-27",
@@ -436,16 +436,16 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -50000.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -43122.0,
+    "of_daily_pl_equity": -5638.1
   },
   {
     "date": "2026-05-28",
-    "tf_close_pl": -89711.0,
+    "tf_close_pl": -89672.0,
     "tf_float_pl": 0.0,
-    "tf_total_pl": -89711.0,
+    "tf_total_pl": -89672.0,
     "of_close_pl": -5778.52,
     "of_float_pl": 0.0,
     "of_total_pl": -5778.52,
@@ -455,8 +455,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -89672.0,
+    "of_daily_pl_equity": -5778.52
   },
   {
     "date": "2026-06-01",
@@ -472,8 +472,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 234670.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-02",
@@ -489,14 +489,14 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -8052.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-03",
-    "tf_close_pl": -71377.0,
+    "tf_close_pl": -71354.0,
     "tf_float_pl": 0.0,
-    "tf_total_pl": -71377.0,
+    "tf_total_pl": -71354.0,
     "of_close_pl": 65756.82,
     "of_float_pl": 0.0,
     "of_total_pl": 65756.82,
@@ -504,10 +504,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -2794.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -71354.0,
+    "of_daily_pl_equity": 65756.82
   },
   {
     "date": "2026-06-04",
@@ -523,8 +523,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": -10350.34
   },
   {
     "date": "2026-06-05",
@@ -540,8 +540,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": -13817.53
   },
   {
     "date": "2026-06-08",
@@ -557,8 +557,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 50558.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-09",
@@ -572,10 +572,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -1979.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": -12033.31
   },
   {
     "date": "2026-06-10",
@@ -591,8 +591,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -8034.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-11",
@@ -606,10 +606,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -10000.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 2274.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-12",
@@ -623,10 +623,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -3280.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -119873.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-15",
@@ -640,19 +640,19 @@
     "of_equity": 832962.0,
     "of_currency": "NTD(基幣)",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -20000.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": 95001.0,
-    "of_daily_pl_equity": 232962.0
+    "tf_daily_pl_equity": 6731.0,
+    "of_daily_pl_equity": 245129.18000000005
   },
   {
     "date": "2026-06-16",
     "tf_close_pl": -9990.0,
     "tf_float_pl": 0.0,
     "tf_total_pl": -9990.0,
-    "of_close_pl": 229571.0,
+    "of_close_pl": 164400.78,
     "of_float_pl": 2871.0,
-    "of_total_pl": 232442.0,
+    "of_total_pl": 167271.78,
     "tf_equity": 1480255.0,
     "of_equity": 820500.0,
     "of_currency": "NTD(基幣)",
@@ -676,8 +676,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": -88078.46
   },
   {
     "date": "2026-06-18",
@@ -692,9 +692,9 @@
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
-    "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "of_deposit_withdrawal": -50000.0,
+    "tf_daily_pl_equity": -40578.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-22",
@@ -708,10 +708,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
-    "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_deposit_withdrawal": -76205.0,
+    "of_deposit_withdrawal": -50000.0,
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": -32114.6
   },
   {
     "date": "2026-06-23",
@@ -727,8 +727,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 0.0,
+    "of_daily_pl_equity": -108049.35
   },
   {
     "date": "2026-06-24",
@@ -742,10 +742,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -3200.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -70751.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-25",
@@ -761,8 +761,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -28916.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-26",
@@ -776,10 +776,10 @@
     "of_equity": 0.0,
     "of_currency": "NTD",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -8765.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 54792.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-29",
@@ -795,8 +795,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -58192.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-06-30",
@@ -812,14 +812,14 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -40602.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-07-01",
-    "tf_close_pl": 0.0,
+    "tf_close_pl": 7921.0,
     "tf_float_pl": 0.0,
-    "tf_total_pl": 0.0,
+    "tf_total_pl": 7921.0,
     "of_close_pl": 19006.44,
     "of_float_pl": 0.0,
     "of_total_pl": 19006.44,
@@ -829,14 +829,14 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 7921.0,
+    "of_daily_pl_equity": 19006.44
   },
   {
     "date": "2026-07-02",
-    "tf_close_pl": 0.0,
+    "tf_close_pl": -16715.0,
     "tf_float_pl": 0.0,
-    "tf_total_pl": 0.0,
+    "tf_total_pl": -16715.0,
     "of_close_pl": -57088.92,
     "of_float_pl": 0.0,
     "of_total_pl": -57088.92,
@@ -846,8 +846,8 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": -16715.0,
+    "of_daily_pl_equity": -57088.92
   },
   {
     "date": "2026-07-03",
@@ -863,14 +863,14 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": null,
-    "of_daily_pl_equity": null
+    "tf_daily_pl_equity": 1472.0,
+    "of_daily_pl_equity": 0.0
   },
   {
     "date": "2026-07-06",
-    "tf_close_pl": 28060.0,
+    "tf_close_pl": 27756.0,
     "tf_float_pl": -530.0,
-    "tf_total_pl": 27530.0,
+    "tf_total_pl": 27226.0,
     "of_close_pl": 0.0,
     "of_float_pl": 11121.0,
     "of_total_pl": 11121.0,
@@ -880,17 +880,17 @@
     "of_ref_rate": 1.0,
     "tf_deposit_withdrawal": 0.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": -77928.0,
-    "of_daily_pl_equity": -341468.0
+    "tf_daily_pl_equity": 201811.0,
+    "of_daily_pl_equity": 24856.889999999898
   },
   {
     "date": "2026-07-07",
-    "tf_close_pl": 56230.0,
+    "tf_close_pl": 55413.0,
     "tf_float_pl": -1960.0,
-    "tf_total_pl": 54270.0,
-    "of_close_pl": 4342.0,
+    "tf_total_pl": 53453.0,
+    "of_close_pl": -5819.15,
     "of_float_pl": 0.0,
-    "of_total_pl": 4342.0,
+    "of_total_pl": -5819.15,
     "tf_equity": 1456291.0,
     "of_equity": 472914.0,
     "of_currency": "NTD(基幣)",
@@ -902,9 +902,9 @@
   },
   {
     "date": "2026-07-08",
-    "tf_close_pl": -4130.0,
+    "tf_close_pl": -4472.0,
     "tf_float_pl": -2790.0,
-    "tf_total_pl": -6920.0,
+    "tf_total_pl": -7262.0,
     "of_close_pl": 0.0,
     "of_float_pl": 0.0,
     "of_total_pl": 0.0,
@@ -912,16 +912,16 @@
     "of_equity": 462490.0,
     "of_currency": "NTD(基幣)",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -23200.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": -28502.0,
+    "tf_daily_pl_equity": -5302.0,
     "of_daily_pl_equity": -10424.0
   },
   {
     "date": "2026-07-09",
-    "tf_close_pl": -17400.0,
+    "tf_close_pl": -17894.0,
     "tf_float_pl": -10100.0,
-    "tf_total_pl": -27500.0,
+    "tf_total_pl": -27994.0,
     "of_close_pl": 0.0,
     "of_float_pl": 0.0,
     "of_total_pl": 0.0,
@@ -939,9 +939,9 @@
     "tf_close_pl": -17400.0,
     "tf_float_pl": -5340.0,
     "tf_total_pl": -22740.0,
-    "of_close_pl": 0.0,
+    "of_close_pl": -8866.97,
     "of_float_pl": 0.0,
-    "of_total_pl": 0.0,
+    "of_total_pl": -8866.97,
     "tf_equity": 1407307.0,
     "of_equity": 463004.0,
     "of_currency": "NTD(基幣)",
@@ -970,12 +970,12 @@
   },
   {
     "date": "2026-07-13",
-    "tf_close_pl": -13380.0,
+    "tf_close_pl": -16412.0,
     "tf_float_pl": -2200.0,
-    "tf_total_pl": -15580.0,
-    "of_close_pl": -35371.0,
+    "tf_total_pl": -18612.0,
+    "of_close_pl": -45488.39,
     "of_float_pl": 0.0,
-    "of_total_pl": -35371.0,
+    "of_total_pl": -45488.39,
     "tf_equity": 1396649.0,
     "of_equity": 418484.0,
     "of_currency": "NTD(基幣)",
@@ -990,16 +990,16 @@
     "tf_close_pl": 56700.0,
     "tf_float_pl": -30730.0,
     "tf_total_pl": 25970.0,
-    "of_close_pl": -13210.0,
+    "of_close_pl": -13310.56,
     "of_float_pl": 0.0,
-    "of_total_pl": -13210.0,
+    "of_total_pl": -13310.56,
     "tf_equity": 1413869.0,
     "of_equity": 395299.0,
     "of_currency": "NTD(基幣)",
     "of_ref_rate": 1.0,
-    "tf_deposit_withdrawal": 0.0,
+    "tf_deposit_withdrawal": -10000.0,
     "of_deposit_withdrawal": 0.0,
-    "tf_daily_pl_equity": 17220.0,
+    "tf_daily_pl_equity": 27220.0,
     "of_daily_pl_equity": -23185.0
   },
   {
@@ -1024,9 +1024,9 @@
     "tf_close_pl": 0.0,
     "tf_float_pl": 10200.0,
     "tf_total_pl": 10200.0,
-    "of_close_pl": 0.0,
+    "of_close_pl": -23352.62,
     "of_float_pl": -7617.0,
-    "of_total_pl": -7617.0,
+    "of_total_pl": -30969.62,
     "tf_equity": 1385791.0,
     "of_equity": 388029.0,
     "of_currency": "NTD(基幣)",
@@ -1041,9 +1041,9 @@
     "tf_close_pl": 113680.0,
     "tf_float_pl": 29240.0,
     "tf_total_pl": 142920.0,
-    "of_close_pl": 0.0,
+    "of_close_pl": -17552.33,
     "of_float_pl": 0.0,
-    "of_total_pl": 0.0,
+    "of_total_pl": -17552.33,
     "tf_equity": 1517257.0,
     "of_equity": 372586.0,
     "of_currency": "NTD(基幣)",
@@ -1075,9 +1075,9 @@
     "tf_close_pl": -930.0,
     "tf_float_pl": 0.0,
     "tf_total_pl": -930.0,
-    "of_close_pl": 0.0,
+    "of_close_pl": -4113.15,
     "of_float_pl": 4920.0,
-    "of_total_pl": 4920.0,
+    "of_total_pl": 806.85,
     "tf_equity": 1486673.0,
     "of_equity": 359626.0,
     "of_currency": "NTD(基幣)",
@@ -1109,9 +1109,9 @@
     "tf_close_pl": 7490.0,
     "tf_float_pl": 0.0,
     "tf_total_pl": 7490.0,
-    "of_close_pl": 10756.0,
+    "of_close_pl": 728.55,
     "of_float_pl": 0.0,
-    "of_total_pl": 10756.0,
+    "of_total_pl": 728.55,
     "tf_equity": 1484449.0,
     "of_equity": 361538.0,
     "tf_deposit_withdrawal": -2940.0,
@@ -1126,9 +1126,9 @@
     "tf_close_pl": 0.0,
     "tf_float_pl": 0.0,
     "tf_total_pl": 0.0,
-    "of_close_pl": 0.0,
+    "of_close_pl": -14475.34,
     "of_float_pl": -10341.0,
-    "of_total_pl": -10341.0,
+    "of_total_pl": -24816.34,
     "tf_equity": 1464449.0,
     "of_equity": 341125.0,
     "tf_deposit_withdrawal": -20000.0,
@@ -1143,9 +1143,9 @@
     "tf_close_pl": 4280.0,
     "tf_float_pl": 0.0,
     "tf_total_pl": 4280.0,
-    "of_close_pl": 0.0,
+    "of_close_pl": -17792.81,
     "of_float_pl": -5272.0,
-    "of_total_pl": -5272.0,
+    "of_total_pl": -23064.81,
     "tf_equity": 1468349.0,
     "of_equity": 332000.0,
     "tf_deposit_withdrawal": 0.0,
@@ -1177,9 +1177,9 @@
     "tf_close_pl": -14260.0,
     "tf_float_pl": -30200.0,
     "tf_total_pl": -44460.0,
-    "of_close_pl": 0.0,
+    "of_close_pl": -26009.59,
     "of_float_pl": 5405.0,
-    "of_total_pl": 5405.0,
+    "of_total_pl": -20604.59,
     "tf_equity": 1423167.0,
     "of_equity": 324534.0,
     "tf_deposit_withdrawal": 0.0,
@@ -1194,15 +1194,15 @@
     "tf_close_pl": 45570.0,
     "tf_float_pl": 14740.0,
     "tf_total_pl": 60310.0,
-    "of_close_pl": -17415.0,
+    "of_close_pl": -31790.79,
     "of_float_pl": 0.0,
-    "of_total_pl": -17415.0,
+    "of_total_pl": -31790.79,
     "tf_equity": 1512407.0,
     "of_equity": 275717.0,
     "tf_deposit_withdrawal": 0.0,
-    "of_deposit_withdrawal": -114.0,
+    "of_deposit_withdrawal": 0.0,
     "tf_daily_pl_equity": 89240.0,
-    "of_daily_pl_equity": -48703.0,
+    "of_daily_pl_equity": -48817.0,
     "of_currency": "NTD(基幣)",
     "of_ref_rate": 1.0
   },
@@ -1211,9 +1211,9 @@
     "tf_close_pl": 118190.0,
     "tf_float_pl": -20850.0,
     "tf_total_pl": 97340.0,
-    "of_close_pl": 0.0,
+    "of_close_pl": -27126.06,
     "of_float_pl": 0.0,
-    "of_total_pl": 0.0,
+    "of_total_pl": -27126.06,
     "tf_equity": 1564143.0,
     "of_equity": 261220.0,
     "tf_deposit_withdrawal": -30000.0,

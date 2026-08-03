@@ -1,31 +1,43 @@
-#%%
 """
 對帳單匯入工具
-將 F0200006398037_期貨沖銷明細.xlsx（國內）
-與 F0200006398037_海外期貨沖銷明細_完整.xlsx（海外）
-依 淨損益(參考) / 淨損益(台幣) 匯整每日損益，寫入 docs/history.json
+把國內/海外「沖銷明細」xlsx（用戶說這是最正確的損益數字來源）併入 docs/history.json。
+
+國內: F0200006398037_期貨沖銷明細*.xlsx  (欄位: 沖銷日期, ..., 淨損益(參考))
+海外: F0200006398037_海外期貨沖銷明細_完整*.xlsx (欄位: 平倉日期, ..., 淨損益(台幣))
+
+這些 xlsx 每次從群益重新匯出都只涵蓋「當次匯出當下的一段區間」，較舊/較新的區間可能不會同時出現
+在同一個檔案裡(跟出入金 xls 一樣的狀況)。所以資料夾裡會累積多個版本(無編號、2、3...)，
+這支程式會把資料夾裡所有符合檔名規則的版本都讀進來，逐筆用唯一 key 去重後併入持久化的
+settlement_log.json，之後 tf_close_pl/of_close_pl 一律從這份持久化 log 重新聚合。
+
+跟舊版最大差異：舊版「日期已存在就跳過」，新版是「沖銷明細有涵蓋到的日期，一律覆蓋
+tf_close_pl/of_close_pl(以及連帶的 tf_total_pl/of_total_pl)」，因為這是比較準確的來源；
+tf_float_pl/of_float_pl(浮動損益)不是沖銷明細會有的東西，維持原本 history.json 裡的值不動
+(如果該日期本來就沒有紀錄，才會建立新的一列、float_pl 設為 0)。
 
 執行方式：
     python import_statements.py
 """
-import os
+import glob
 import json
+import os
+
 import pandas as pd
 
-REPO_DIR  = os.path.dirname(os.path.abspath(__file__))
-DOM_FILE  = os.path.join(REPO_DIR, "F0200006398037_期貨沖銷明細.xlsx")
-OVS_FILE  = os.path.join(REPO_DIR, "F0200006398037_海外期貨沖銷明細_完整.xlsx")
+REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 HIST_PATH = os.path.join(REPO_DIR, "docs", "history.json")
+SETTLEMENT_LOG_PATH = os.path.join(REPO_DIR, "settlement_log.json")
+
+DOM_GLOB = os.path.join(REPO_DIR, "F0200006398037_期貨沖銷明細*.xlsx")
+# 海外檔名裡也含「期貨沖銷明細」，用「海外」開頭排除跟國內混到
+OVS_GLOB = os.path.join(REPO_DIR, "F0200006398037_海外期貨沖銷明細_完整*.xlsx")
+
 
 def to_float(v):
     if pd.isna(v):
         return 0.0
     return float(str(v).replace(",", "").strip())
 
-def to_date_str(v):
-    """YYYYMMDD (int or str) → '2026-05-28'"""
-    s = str(int(float(str(v).replace(",", ""))))
-    return f"{s[:4]}-{s[4:6]}-{s[6:8]}"
 
 def is_valid_date(v):
     try:
@@ -34,113 +46,126 @@ def is_valid_date(v):
     except Exception:
         return False
 
-# ═══════════════════════════════════════════
-# 1. 國內期貨沖銷明細
-#    header: 沖銷日期, ..., 淨損益(參考)
-# ═══════════════════════════════════════════
-dom = pd.read_excel(DOM_FILE, header=0, engine="openpyxl", dtype=str)
 
-# 去掉合計行、空行
-date_col = "沖銷日期"
-pl_col   = "淨損益(參考)"
-dom = dom[dom[date_col].apply(is_valid_date)].copy()
+def to_date_str(v):
+    s = str(int(float(str(v).replace(",", ""))))
+    return f"{s[:4]}-{s[4:6]}-{s[6:8]}"
 
-dom["_date"] = dom[date_col].apply(to_date_str)
-dom["_pl"]   = dom[pl_col].apply(to_float)
 
-dom_daily = (
-    dom.groupby("_date")["_pl"]
-    .sum().reset_index()
-    .rename(columns={"_date": "date", "_pl": "tf_close_pl"})
-)
+def parse_dom_file(path):
+    df = pd.read_excel(path, header=0, engine="openpyxl", dtype=str)
+    df = df[df["沖銷日期"].apply(is_valid_date)].copy()
+    df["date"] = df["沖銷日期"].apply(to_date_str)
+    df["signed"] = df["淨損益(參考)"].apply(to_float)
+    df["key"] = df.apply(
+        lambda r: "TF|" + "|".join(str(r[c]) for c in
+                                    ["沖銷日期", "成交日", "成交時間", "商品", "買賣", "成交價", "成交量", "淨損益(參考)"]),
+        axis=1,
+    )
+    return df[["key", "date", "signed"]].to_dict("records")
 
-print(f"[國內] {len(dom)} 筆 → {len(dom_daily)} 個交易日")
-for _, r in dom_daily.iterrows():
-    print(f"  {r['date']}  淨損益(參考): {r['tf_close_pl']:>10,.0f}")
 
-# ═══════════════════════════════════════════
-# 2. 海外期貨沖銷明細
-#    header: 平倉日期, ..., 淨損益(台幣)
-# ═══════════════════════════════════════════
-ovs = pd.read_excel(OVS_FILE, header=0, engine="openpyxl", dtype=str)
+def parse_ovs_file(path):
+    df = pd.read_excel(path, header=0, engine="openpyxl", dtype=str)
+    df = df[df["平倉日期"].apply(is_valid_date)].copy()
+    df["date"] = df["平倉日期"].apply(to_date_str)
+    df["signed"] = df["淨損益(台幣)"].apply(to_float)
+    df["key"] = df.apply(
+        lambda r: "OF|" + "|".join(str(r[c]) for c in
+                                    ["平倉日期", "成交日期", "商品名稱", "商品年月", "買賣別", "口數", "成交價", "淨損益(台幣)"]),
+        axis=1,
+    )
+    return df[["key", "date", "signed"]].to_dict("records")
 
-date_col2 = "平倉日期"
-pl_col2   = "淨損益(台幣)"
-ovs = ovs[ovs[date_col2].apply(is_valid_date)].copy()
 
-ovs["_date"] = ovs[date_col2].apply(to_date_str)
-ovs["_pl"]   = ovs[pl_col2].apply(to_float)
+def load_log():
+    if not os.path.exists(SETTLEMENT_LOG_PATH):
+        return {}
+    with open(SETTLEMENT_LOG_PATH, "r", encoding="utf-8") as f:
+        return {r["key"]: r for r in json.load(f)}
 
-ovs_daily = (
-    ovs.groupby("_date")["_pl"]
-    .sum().reset_index()
-    .rename(columns={"_date": "date", "_pl": "of_close_pl_twd"})
-)
 
-print(f"\n[海外] {len(ovs)} 筆 → {len(ovs_daily)} 個交易日")
-for _, r in ovs_daily.iterrows():
-    print(f"  {r['date']}  淨損益(台幣): {r['of_close_pl_twd']:>12,.0f}")
+def merge_log(existing, fresh_records):
+    added = 0
+    for r in fresh_records:
+        if r["key"] not in existing:
+            added += 1
+        existing[r["key"]] = r
+    return added
 
-# ═══════════════════════════════════════════
-# 3. 合併 → history record
-# ═══════════════════════════════════════════
-merged = pd.merge(dom_daily, ovs_daily, on="date", how="outer").fillna(0)
-merged = merged.sort_values("date").reset_index(drop=True)
 
-new_records = []
-for _, row in merged.iterrows():
-    tf = round(row["tf_close_pl"], 2)
-    of = round(row["of_close_pl_twd"], 2)
-    new_records.append({
-        "date":        row["date"],
-        "tf_close_pl": tf,
-        "tf_float_pl": 0.0,
-        "tf_total_pl": tf,
-        "of_close_pl": of,   # 已換算台幣，ref_rate=1
-        "of_float_pl": 0.0,
-        "of_total_pl": of,
-        "tf_equity":   0.0,
-        "of_equity":   0.0,
-        "of_currency": "NTD",
-        "of_ref_rate": 1.0,
-    })
+def save_log(existing):
+    records = sorted(existing.values(), key=lambda r: (r["date"], r["key"]))
+    with open(SETTLEMENT_LOG_PATH, "w", encoding="utf-8") as f:
+        json.dump(records, f, ensure_ascii=False, indent=2)
+    return records
 
-# ═══════════════════════════════════════════
-# 4. 與現有 history.json 合併
-#    已有 API 資料的日期優先保留（含浮動損益）
-# ═══════════════════════════════════════════
-existing = []
-if os.path.exists(HIST_PATH):
+
+def main():
+    log = load_log()
+    print(f"[讀取] 持久化沖銷紀錄: {len(log)} 筆")
+
+    dom_files = sorted(glob.glob(DOM_GLOB))
+    dom_files = [p for p in dom_files if "海外" not in os.path.basename(p)]
+    ovs_files = sorted(glob.glob(OVS_GLOB))
+
+    for path in dom_files:
+        added = merge_log(log, parse_dom_file(path))
+        print(f"[國內] {os.path.basename(path)}  新併入 {added} 筆")
+
+    for path in ovs_files:
+        added = merge_log(log, parse_ovs_file(path))
+        print(f"[海外] {os.path.basename(path)}  新併入 {added} 筆")
+
+    records = save_log(log)
+    print(f"[寫入] 持久化沖銷紀錄共 {len(records)} 筆: {SETTLEMENT_LOG_PATH}")
+
+    tf_daily = {}
+    of_daily = {}
+    for r in records:
+        d, market, signed = r["date"], r["key"].split("|", 1)[0], r["signed"]
+        bucket = tf_daily if market == "TF" else of_daily
+        bucket[d] = bucket.get(d, 0.0) + signed
+
     with open(HIST_PATH, "r", encoding="utf-8") as f:
-        existing = json.load(f)
+        history = json.load(f)
+    by_date = {r["date"]: r for r in history}
 
-existing_dates = {r["date"] for r in existing}
+    updated, created = 0, 0
+    for d, tf_close in tf_daily.items():
+        rec = by_date.get(d)
+        if rec is None:
+            rec = {"date": d, "tf_float_pl": 0.0, "of_close_pl": 0.0, "of_float_pl": 0.0,
+                   "tf_equity": 0.0, "of_equity": 0.0, "of_currency": "NTD", "of_ref_rate": 1.0}
+            history.append(rec)
+            by_date[d] = rec
+            created += 1
+        else:
+            updated += 1
+        rec["tf_close_pl"] = round(tf_close, 2)
+        rec["tf_total_pl"] = round(tf_close + rec.get("tf_float_pl", 0.0), 2)
 
-added, skipped = 0, 0
-for rec in new_records:
-    if rec["date"] not in existing_dates:
-        existing.append(rec)
-        added += 1
-    else:
-        skipped += 1
+    for d, of_close in of_daily.items():
+        rec = by_date.get(d)
+        if rec is None:
+            rec = {"date": d, "tf_close_pl": 0.0, "tf_float_pl": 0.0, "of_float_pl": 0.0,
+                   "tf_equity": 0.0, "of_equity": 0.0, "of_currency": "NTD", "of_ref_rate": 1.0}
+            history.append(rec)
+            by_date[d] = rec
+            created += 1
+        else:
+            updated += 1
+        rec["of_close_pl"] = round(of_close, 2)
+        rec["of_total_pl"] = round(of_close + rec.get("of_float_pl", 0.0), 2)
 
-existing = sorted(existing, key=lambda x: x["date"])
+    history = sorted(history, key=lambda r: r["date"])
+    with open(HIST_PATH, "w", encoding="utf-8") as f:
+        json.dump(history, f, ensure_ascii=False, indent=2)
 
-with open(HIST_PATH, "w", encoding="utf-8") as f:
-    json.dump(existing, f, ensure_ascii=False, indent=2)
+    print(f"[完成] history.json 覆蓋/新增 close_pl 共 {updated + created} 個日期記錄"
+          f"(更新 {updated}，新增 {created})，總計 {len(history)} 天")
+    print("[提醒] tf_close_pl/of_close_pl 已更新，記得重新執行 backfill_daily_pl.py 讓權益差額法用新數字重算")
 
-print(f"\n[完成] 新增 {added} 天，跳過 {skipped} 天（已有API資料）")
-print(f"  history.json 共 {len(existing)} 天")
-print(f"  時間範圍：{existing[0]['date']} → {existing[-1]['date']}")
 
-# 摘要
-print("\n=== 每日損益摘要 ===")
-cum = 0.0
-for r in existing:
-    tf = r["tf_total_pl"]
-    of = r["of_total_pl"] * r["of_ref_rate"]
-    total = tf + of
-    cum += total
-    print(f"  {r['date']}  國內:{tf:>10,.0f}  海外(TWD):{of:>11,.0f}  合計:{total:>10,.0f}  累積:{cum:>12,.0f}")
-
-#%%
+if __name__ == "__main__":
+    main()
