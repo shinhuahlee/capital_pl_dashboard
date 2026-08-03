@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-08-03 05:00:33",
+  "updated_at": "2026-08-03 15:30:34",
   "tf_rights": [
     {
       "account": "F0200006398037",
       "account_balance": "1489007",
       "floating_pl": "0",
-      "futures_close_pl": "-61110",
+      "futures_close_pl": "-14930",
       "intraday_unrealized": "0",
       "equity": "1489007",
       "excess_margin": "1489007",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "100",
-      "yesterday_balance": "1550643",
-      "realized_fee": "280",
-      "transaction_tax": "246",
+      "yesterday_balance": "1504013",
+      "realized_fee": "40",
+      "transaction_tax": "36",
       "available_balance": "1489007",
       "deposit_withdrawal": "0"
     }
@@ -23,17 +23,17 @@
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "227454",
-      "account_balance": "233884",
-      "futures_floating_pl": "-6430",
+      "account_equity": "240572",
+      "account_balance": "234213",
+      "futures_floating_pl": "6359",
       "futures_close_pl_today": "0",
-      "intraday_unrealized": "0",
-      "initial_margin": "136801",
-      "maintenance_margin": "124361",
-      "risk_indicator": "166.27",
-      "withdrawable_margin": "90653",
+      "intraday_unrealized": "12816",
+      "initial_margin": "137376",
+      "maintenance_margin": "124885",
+      "risk_indicator": "175.12",
+      "withdrawable_margin": "90380",
       "realized_fee": "0",
-      "previous_day_balance": "233884",
+      "previous_day_balance": "234213",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -50,13 +50,15 @@
       "buy_sell": "B",
       "open_interest": "1",
       "avg_price": "28503.7500",
-      "market_price": "28404.25000",
-      "unrealized_pl": "-199.00",
+      "market_price": "28601.75000",
+      "unrealized_pl": "196.00",
       "prev_settlement": "28404.25000",
       "initial_margin": "",
       "is_option": "OF",
       "strike_price": "0",
       "call_put": ""
     }
-  ]
+  ],
+  "tf_daily_pl_equity": 0.0,
+  "of_daily_pl_equity": 20888.0
 }
