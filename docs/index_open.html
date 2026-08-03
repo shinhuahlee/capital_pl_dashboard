@@ -111,7 +111,7 @@
   <section class="bg-white rounded-2xl shadow p-3 sm:p-5 mb-4">
     <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-3">📈 近60天每日總損益</h2>
     <canvas id="history-chart"></canvas>
-    <p class="text-xs text-slate-400 mt-2">日損益採權益差額法(今日權益−昨日權益−當日存提款)，缺權益資料的日子退回用平倉+浮動損益；單位為新台幣元</p>
+    <p class="text-xs text-slate-400 mt-2">國內損益單位：新台幣元；海外損益已換算台幣（×參考匯率）</p>
   </section>
 
   <!-- ── 國內期貨權益 ── -->
@@ -276,8 +276,8 @@
       const isMobile = window.innerWidth < 640;
       const labels = rows.map(r => r.date.slice(5));
 
-      const tfVals = rows.map(r => r.tf_daily_pl_equity != null ? r.tf_daily_pl_equity : (r.tf_total_pl || 0));
-      const ofVals = rows.map(r => r.of_daily_pl_equity != null ? r.of_daily_pl_equity : (r.of_total_pl || 0) * (r.of_ref_rate || 1));
+      const tfVals = rows.map(r => r.tf_total_pl || 0);
+      const ofVals = rows.map(r => (r.of_total_pl || 0) * (r.of_ref_rate || 1));
       let cum = 0;
       const cumVals = tfVals.map((v, i) => { cum += v + ofVals[i]; return cum; });
 
@@ -367,18 +367,14 @@
       const start = dailyCurrentPage * DAILY_PAGE_SIZE;
       const page = dailyRows.slice(start, start + DAILY_PAGE_SIZE);
 
-      const pl = r => ({
-        tf: r.tf_daily_pl_equity != null ? r.tf_daily_pl_equity : (r.tf_total_pl || 0),
-        of: r.of_daily_pl_equity != null ? r.of_daily_pl_equity : (r.of_total_pl || 0) * (r.of_ref_rate || 1),
-      });
-
       // 全年累積總和；本頁首行的累積 = 全年總 - 頁前各行之和
-      const allTotal = dailyRows.reduce((s, r) => { const p = pl(r); return s + p.tf + p.of; }, 0);
-      const beforePage = dailyRows.slice(0, start).reduce((s, r) => { const p = pl(r); return s + p.tf + p.of; }, 0);
+      const allTotal = dailyRows.reduce((s, r) => s + (r.tf_total_pl || 0) + (r.of_total_pl || 0) * (r.of_ref_rate || 1), 0);
+      const beforePage = dailyRows.slice(0, start).reduce((s, r) => s + (r.tf_total_pl || 0) + (r.of_total_pl || 0) * (r.of_ref_rate || 1), 0);
       let cum = allTotal - beforePage;
 
       document.getElementById('daily-body').innerHTML = page.map(r => {
-        const { tf, of } = pl(r);
+        const tf = r.tf_total_pl || 0;
+        const of = (r.of_total_pl || 0) * (r.of_ref_rate || 1);
         const sum = tf + of;
         const row = `<tr>
           <td>${r.date}</td>
@@ -429,8 +425,6 @@
             of_close_pl: ofClose, of_float_pl: ofFloat, of_total_pl: ofClose + ofFloat,
             tf_equity: pf(tfR.equity), of_equity: pf(ofR.account_equity),
             of_currency: ofR.currency || '', of_ref_rate: rate,
-            tf_daily_pl_equity: d.tf_daily_pl_equity != null ? d.tf_daily_pl_equity : null,
-            of_daily_pl_equity: d.of_daily_pl_equity != null ? d.of_daily_pl_equity : null,
           });
         }
       }
