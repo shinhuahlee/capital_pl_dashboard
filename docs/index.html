@@ -243,6 +243,29 @@
     </div>
   </section>
 
+  <!-- ── 每月損益總表 ── -->
+  <section class="mb-4">
+    <h2 class="text-sm sm:text-base font-semibold text-slate-700 mb-2">📅 每月損益總表</h2>
+    <div class="overflow-x-auto rounded-2xl shadow">
+      <table>
+        <thead>
+          <tr>
+            <th>月份</th>
+            <th>國內損益</th>
+            <th>海外損益(TWD)</th>
+            <th>合計</th>
+            <th>累積損益</th>
+          </tr>
+        </thead>
+        <tbody id="monthly-body">
+          <tr>
+            <td colspan="5" class="text-center py-4 text-slate-400">載入中…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <footer class="text-center text-xs text-slate-400 py-4">
     資料由 fetch_pl_data.py 每日寫入，git push 後更新
   </footer>
@@ -398,6 +421,45 @@
     }
 
 
+    // ── 每月損益總表 ──
+    function buildMonthlyTable(rows) {
+      const tbody = document.getElementById('monthly-body');
+      if (!rows || !rows.length) {
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-slate-400 py-4">無歷史資料</td></tr>';
+        return;
+      }
+      const pl = r => ({
+        tf: r.tf_daily_pl_equity != null ? r.tf_daily_pl_equity : (r.tf_total_pl || 0),
+        of: r.of_daily_pl_equity != null ? r.of_daily_pl_equity : (r.of_total_pl || 0) * (r.of_ref_rate || 1),
+      });
+
+      const monthMap = new Map(); // 'YYYY-MM' -> { tf, of }
+      rows.forEach(r => {
+        const key = r.date.slice(0, 7);
+        const { tf, of } = pl(r);
+        const acc = monthMap.get(key) || { tf: 0, of: 0 };
+        acc.tf += tf;
+        acc.of += of;
+        monthMap.set(key, acc);
+      });
+
+      const months = Array.from(monthMap.keys()).sort(); // 舊到新，方便累積計算
+      let cum = 0;
+      const withCum = months.map(m => {
+        const { tf, of } = monthMap.get(m);
+        cum += tf + of;
+        return { month: m, tf, of, sum: tf + of, cum };
+      });
+
+      tbody.innerHTML = withCum.slice().reverse().map(row => `<tr>
+        <td>${row.month}</td>
+        <td class="${clrN(row.tf)}">${fmtN(Math.round(row.tf))}</td>
+        <td class="${clrN(row.of)}">${fmtN(Math.round(row.of))}</td>
+        <td class="sum-col ${clrN(row.sum)}">${fmtN(Math.round(row.sum))}</td>
+        <td class="${clrN(row.cum)}">${fmtN(Math.round(row.cum))}</td>
+      </tr>`).join('');
+    }
+
     // ── 資料載入 ──
     async function loadAll() {
       document.getElementById('updated_at').textContent = '載入中…';
@@ -439,6 +501,7 @@
       historyData = history;
       buildHistoryChart(history.slice(-60));
       buildDailyTable(history);
+      buildMonthlyTable(history);
 
       // 摘要卡片
       const cards = [
