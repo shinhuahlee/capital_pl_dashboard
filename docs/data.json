@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-08-10 05:00:35",
+  "updated_at": "2026-08-10 09:21:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
       "account_balance": "1486947",
-      "floating_pl": "-127750",
-      "futures_close_pl": "17400",
-      "intraday_unrealized": "0",
-      "equity": "1359197",
-      "excess_margin": "786797",
+      "floating_pl": "4550",
+      "futures_close_pl": "13040",
+      "intraday_unrealized": "4550",
+      "equity": "1491497",
+      "excess_margin": "919097",
       "initial_margin": "572400",
       "maintenance_margin": "439200",
-      "risk_indicator": "257",
-      "yesterday_balance": "1496117",
-      "realized_fee": "300",
-      "transaction_tax": "270",
-      "available_balance": "786797",
+      "risk_indicator": "261",
+      "yesterday_balance": "1500401",
+      "realized_fee": "260",
+      "transaction_tax": "234",
+      "available_balance": "914547",
       "deposit_withdrawal": "-26000"
     }
   ],
@@ -23,17 +23,17 @@
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "319843",
-      "account_balance": "233860",
-      "futures_floating_pl": "85983",
+      "account_equity": "321767",
+      "account_balance": "233831",
+      "futures_floating_pl": "87936",
       "futures_close_pl_today": "0",
-      "intraday_unrealized": "0",
-      "initial_margin": "140311",
-      "maintenance_margin": "127553",
-      "risk_indicator": "227.95",
-      "withdrawable_margin": "179532",
+      "intraday_unrealized": "1986",
+      "initial_margin": "140259",
+      "maintenance_margin": "127505",
+      "risk_indicator": "229.41",
+      "withdrawable_margin": "179522",
       "realized_fee": "0",
-      "previous_day_balance": "233860",
+      "previous_day_balance": "233831",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -62,8 +62,8 @@
       "buy_sell": "B",
       "open_interest": "1",
       "avg_price": "28503.7500",
-      "market_price": "29834.75000",
-      "unrealized_pl": "2662.00",
+      "market_price": "29864.75000",
+      "unrealized_pl": "2722.00",
       "prev_settlement": "29834.75000",
       "initial_margin": "",
       "is_option": "OF",
@@ -71,6 +71,6 @@
       "call_put": ""
     }
   ],
-  "tf_daily_pl_equity": -133020.0,
-  "of_daily_pl_equity": -371.0
+  "tf_daily_pl_equity": -720.0,
+  "of_daily_pl_equity": 1553.0
 }
