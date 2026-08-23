@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-22 05:30:32",
+  "updated_at": "2026-08-24 05:30:38",
   "tf_rights": [
     {
       "account": "F0200006398037",
@@ -53,5 +53,5 @@
   ],
   "of_positions": [],
   "tf_daily_pl_equity": 0.0,
-  "of_daily_pl_equity": -154.0
+  "of_daily_pl_equity": 0.0
 }
