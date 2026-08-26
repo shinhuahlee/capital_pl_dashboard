@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-08-26 14:30:33",
+  "updated_at": "2026-08-27 05:30:34",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1457351",
+      "account_balance": "1467351",
       "floating_pl": "39370",
-      "futures_close_pl": "31540",
+      "futures_close_pl": "0",
       "intraday_unrealized": "0",
-      "equity": "1496721",
-      "excess_margin": "725621",
+      "equity": "1506721",
+      "excess_margin": "735621",
       "initial_margin": "771100",
       "maintenance_margin": "591800",
-      "risk_indicator": "194",
+      "risk_indicator": "195",
       "yesterday_balance": "1436419",
-      "realized_fee": "320",
-      "transaction_tax": "288",
-      "available_balance": "725621",
-      "deposit_withdrawal": "-10000"
+      "realized_fee": "0",
+      "transaction_tax": "0",
+      "available_balance": "735621",
+      "deposit_withdrawal": "0"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "255481",
-      "account_balance": "255481",
+      "account_equity": "255340",
+      "account_balance": "255340",
       "futures_floating_pl": "0",
       "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "255481",
-      "realized_fee": "0",
-      "previous_day_balance": "255481",
+      "withdrawable_margin": "255544",
+      "realized_fee": "48",
+      "previous_day_balance": "255388",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -51,7 +51,26 @@
       "tax": ""
     }
   ],
-  "of_positions": [],
-  "tf_daily_pl_equity": 70302.0,
-  "of_daily_pl_equity": -123.0
+  "of_positions": [
+    {
+      "account": "F0200006398037",
+      "exchange_code": "CME",
+      "exchange_name": "芝加哥商業交易所",
+      "product_code_ym": "MNQ    202609",
+      "product_code": "MNQ",
+      "product_name_ym": "微那斯達克           202609",
+      "buy_sell": "B",
+      "open_interest": "1",
+      "avg_price": "29367.2500",
+      "market_price": "29289.50000",
+      "unrealized_pl": "-155.50",
+      "prev_settlement": "29289.50000",
+      "initial_margin": "",
+      "is_option": "OF",
+      "strike_price": "0",
+      "call_put": ""
+    }
+  ],
+  "tf_daily_pl_equity": 10000.0,
+  "of_daily_pl_equity": -141.0
 }
