@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-09-09 14:30:33",
+  "updated_at": "2026-09-10 05:30:33",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1346135",
-      "floating_pl": "-7810",
-      "futures_close_pl": "-56980",
+      "account_balance": "1338947",
+      "floating_pl": "0",
+      "futures_close_pl": "0",
       "intraday_unrealized": "0",
-      "equity": "1338325",
-      "excess_margin": "1268225",
-      "initial_margin": "70100",
-      "maintenance_margin": "53800",
-      "risk_indicator": "1909",
+      "equity": "1338947",
+      "excess_margin": "1338947",
+      "initial_margin": "0",
+      "maintenance_margin": "0",
+      "risk_indicator": "100",
       "yesterday_balance": "1403614",
-      "realized_fee": "260",
-      "transaction_tax": "239",
-      "available_balance": "1268225",
+      "realized_fee": "0",
+      "transaction_tax": "0",
+      "available_balance": "1338947",
       "deposit_withdrawal": "0"
     }
   ],
@@ -38,20 +38,8 @@
       "deposit_withdrawal": "0"
     }
   ],
-  "tf_positions": [
-    {
-      "market_type": "TF",
-      "account": "F0200006398037",
-      "future_no": "TM09",
-      "buy_sell": "B",
-      "qty": "2",
-      "qty_trade": "0",
-      "avg_price": "47568.50",
-      "fee": "",
-      "tax": ""
-    }
-  ],
+  "tf_positions": [],
   "of_positions": [],
-  "tf_daily_pl_equity": -21779.0,
-  "of_daily_pl_equity": -14785.0
+  "tf_daily_pl_equity": 622.0,
+  "of_daily_pl_equity": 0.0
 }
