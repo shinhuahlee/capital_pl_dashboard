@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14 14:30:32",
+  "updated_at": "2026-09-15 05:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
@@ -23,17 +23,17 @@
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "223314",
-      "account_balance": "223314",
-      "futures_floating_pl": "0",
-      "futures_close_pl_today": "-5868",
+      "account_equity": "234219",
+      "account_balance": "223203",
+      "futures_floating_pl": "11016",
+      "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
-      "initial_margin": "0",
-      "maintenance_margin": "0",
-      "risk_indicator": "",
-      "withdrawable_margin": "223314",
-      "realized_fee": "48",
-      "previous_day_balance": "229230",
+      "initial_margin": "146581",
+      "maintenance_margin": "133235",
+      "risk_indicator": "159.79",
+      "withdrawable_margin": "87638",
+      "realized_fee": "0",
+      "previous_day_balance": "223203",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -51,7 +51,26 @@
       "tax": ""
     }
   ],
-  "of_positions": [],
-  "tf_daily_pl_equity": -11120.0,
-  "of_daily_pl_equity": -19233.0
+  "of_positions": [
+    {
+      "account": "F0200006398037",
+      "exchange_code": "CME",
+      "exchange_name": "芝加哥商業交易所",
+      "product_code_ym": "MNQ    202609",
+      "product_code": "MNQ",
+      "product_name_ym": "微那斯達克           202609",
+      "buy_sell": "B",
+      "open_interest": "1",
+      "avg_price": "28978.5000",
+      "market_price": "29152.25000",
+      "unrealized_pl": "347.50",
+      "prev_settlement": "29152.25000",
+      "initial_margin": "",
+      "is_option": "OF",
+      "strike_price": "0",
+      "call_put": ""
+    }
+  ],
+  "tf_daily_pl_equity": 0.0,
+  "of_daily_pl_equity": 10905.0
 }
