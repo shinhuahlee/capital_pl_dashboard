@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-09-24 05:30:32",
+  "updated_at": "2026-09-24 14:30:34",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1581853",
-      "floating_pl": "8850",
-      "futures_close_pl": "0",
+      "account_balance": "1572733",
+      "floating_pl": "-17130",
+      "futures_close_pl": "-98510",
       "intraday_unrealized": "0",
-      "equity": "1590703",
-      "excess_margin": "1029903",
+      "equity": "1555603",
+      "excess_margin": "994803",
       "initial_margin": "560800",
       "maintenance_margin": "430400",
-      "risk_indicator": "284",
-      "yesterday_balance": "1724023",
-      "realized_fee": "0",
-      "transaction_tax": "0",
-      "available_balance": "1029903",
+      "risk_indicator": "277",
+      "yesterday_balance": "1671783",
+      "realized_fee": "270",
+      "transaction_tax": "270",
+      "available_balance": "994803",
       "deposit_withdrawal": "0"
     }
   ],
@@ -23,17 +23,17 @@
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "296901",
-      "account_balance": "296901",
+      "account_equity": "288105",
+      "account_balance": "288105",
       "futures_floating_pl": "0",
-      "futures_close_pl_today": "0",
+      "futures_close_pl_today": "-9552",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "296901",
-      "realized_fee": "0",
-      "previous_day_balance": "296901",
+      "withdrawable_margin": "288105",
+      "realized_fee": "96",
+      "previous_day_balance": "297752",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -46,12 +46,12 @@
       "buy_sell": "B",
       "qty": "16",
       "qty_trade": "0",
-      "avg_price": "48256.68",
+      "avg_price": "48232.06",
       "fee": "",
       "tax": ""
     }
   ],
   "of_positions": [],
-  "tf_daily_pl_equity": -28700.0,
-  "of_daily_pl_equity": -26274.0
+  "tf_daily_pl_equity": -63800.0,
+  "of_daily_pl_equity": -35070.0
 }
