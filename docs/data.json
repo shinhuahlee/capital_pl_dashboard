@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-10-01 14:30:32",
+  "updated_at": "2026-10-02 05:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1476623",
-      "floating_pl": "36440",
-      "futures_close_pl": "17980",
+      "account_balance": "1481443",
+      "floating_pl": "11540",
+      "futures_close_pl": "0",
       "intraday_unrealized": "0",
-      "equity": "1513063",
-      "excess_margin": "812063",
-      "initial_margin": "701000",
-      "maintenance_margin": "538000",
-      "risk_indicator": "216",
+      "equity": "1492983",
+      "excess_margin": "1142483",
+      "initial_margin": "350500",
+      "maintenance_margin": "269000",
+      "risk_indicator": "426",
       "yesterday_balance": "1459083",
-      "realized_fee": "220",
-      "transaction_tax": "220",
-      "available_balance": "812063",
+      "realized_fee": "0",
+      "transaction_tax": "0",
+      "available_balance": "1142483",
       "deposit_withdrawal": "0"
     }
   ],
@@ -23,17 +23,17 @@
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "330102",
-      "account_balance": "292057",
-      "futures_floating_pl": "38045",
+      "account_equity": "291218",
+      "account_balance": "297716",
+      "futures_floating_pl": "-6498",
       "futures_close_pl_today": "0",
-      "intraday_unrealized": "27795",
-      "initial_margin": "151444",
-      "maintenance_margin": "137650",
-      "risk_indicator": "217.97",
-      "withdrawable_margin": "150863",
+      "intraday_unrealized": "0",
+      "initial_margin": "151088",
+      "maintenance_margin": "137327",
+      "risk_indicator": "192.75",
+      "withdrawable_margin": "140130",
       "realized_fee": "0",
-      "previous_day_balance": "292057",
+      "previous_day_balance": "297716",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -44,9 +44,9 @@
       "account": "F0200006398037",
       "future_no": "TM10",
       "buy_sell": "B",
-      "qty": "20",
+      "qty": "10",
       "qty_trade": "0",
-      "avg_price": "48515.80",
+      "avg_price": "48582.60",
       "fee": "",
       "tax": ""
     }
@@ -61,16 +61,16 @@
       "product_name_ym": "微那斯達克           202612",
       "buy_sell": "B",
       "open_interest": "1",
-      "avg_price": "30538.2500",
-      "market_price": "31134.00000",
-      "unrealized_pl": "1191.50",
-      "prev_settlement": "30698.75000",
+      "avg_price": "30862.5000",
+      "market_price": "30760.50000",
+      "unrealized_pl": "-204.00",
+      "prev_settlement": "30760.50000",
       "initial_margin": "",
       "is_option": "OF",
       "strike_price": "0",
       "call_put": ""
     }
   ],
-  "tf_daily_pl_equity": 46340.0,
-  "of_daily_pl_equity": 34852.0
+  "tf_daily_pl_equity": -20080.0,
+  "of_daily_pl_equity": -38884.0
 }
