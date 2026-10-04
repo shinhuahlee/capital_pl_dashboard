@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-10-03 05:30:33",
+  "updated_at": "2026-10-05 05:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
       "account_balance": "1484883",
       "floating_pl": "-8320",
-      "futures_close_pl": "8940",
+      "futures_close_pl": "0",
       "intraday_unrealized": "0",
       "equity": "1476563",
       "excess_margin": "915763",
@@ -13,8 +13,8 @@
       "maintenance_margin": "430400",
       "risk_indicator": "263",
       "yesterday_balance": "1476623",
-      "realized_fee": "340",
-      "transaction_tax": "340",
+      "realized_fee": "0",
+      "transaction_tax": "0",
       "available_balance": "915763",
       "deposit_withdrawal": "0"
     }
@@ -28,10 +28,10 @@
       "futures_floating_pl": "12690",
       "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
-      "initial_margin": "151264",
-      "maintenance_margin": "137507",
-      "risk_indicator": "205.17",
-      "withdrawable_margin": "159081",
+      "initial_margin": "151423",
+      "maintenance_margin": "137634",
+      "risk_indicator": "204.95",
+      "withdrawable_margin": "158922",
       "realized_fee": "0",
       "previous_day_balance": "297655",
       "reference_rate": "1",
@@ -71,6 +71,6 @@
       "call_put": ""
     }
   ],
-  "tf_daily_pl_equity": -410.0,
-  "of_daily_pl_equity": 11647.0
+  "tf_daily_pl_equity": 0.0,
+  "of_daily_pl_equity": 0.0
 }
