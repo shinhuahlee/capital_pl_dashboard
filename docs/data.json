@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-10-07 14:30:32",
+  "updated_at": "2026-10-08 05:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1548323",
-      "floating_pl": "86520",
+      "account_balance": "1582853",
+      "floating_pl": "-720",
       "futures_close_pl": "0",
       "intraday_unrealized": "0",
-      "equity": "1634843",
-      "excess_margin": "793643",
-      "initial_margin": "841200",
-      "maintenance_margin": "645600",
-      "risk_indicator": "194",
+      "equity": "1582133",
+      "excess_margin": "1231633",
+      "initial_margin": "350500",
+      "maintenance_margin": "269000",
+      "risk_indicator": "451",
       "yesterday_balance": "1558323",
       "realized_fee": "0",
       "transaction_tax": "0",
-      "available_balance": "793643",
-      "deposit_withdrawal": "-10000"
+      "available_balance": "1231633",
+      "deposit_withdrawal": "0"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "335359",
-      "account_balance": "297309",
-      "futures_floating_pl": "38050",
+      "account_equity": "331745",
+      "account_balance": "297412",
+      "futures_floating_pl": "34333",
       "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
-      "initial_margin": "152519",
-      "maintenance_margin": "138627",
-      "risk_indicator": "219.88",
-      "withdrawable_margin": "182840",
+      "initial_margin": "152600",
+      "maintenance_margin": "138702",
+      "risk_indicator": "217.40",
+      "withdrawable_margin": "179145",
       "realized_fee": "0",
-      "previous_day_balance": "297309",
+      "previous_day_balance": "297412",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -44,9 +44,9 @@
       "account": "F0200006398037",
       "future_no": "TM10",
       "buy_sell": "B",
-      "qty": "24",
+      "qty": "10",
       "qty_trade": "0",
-      "avg_price": "49607.50",
+      "avg_price": "49975.20",
       "fee": "",
       "tax": ""
     }
@@ -62,15 +62,15 @@
       "buy_sell": "B",
       "open_interest": "1",
       "avg_price": "30862.5000",
-      "market_price": "31460.00000",
-      "unrealized_pl": "1195.00",
-      "prev_settlement": "31483.25000",
+      "market_price": "31402.25000",
+      "unrealized_pl": "1079.50",
+      "prev_settlement": "31402.25000",
       "initial_margin": "",
       "is_option": "OF",
       "strike_price": "0",
       "call_put": ""
     }
   ],
-  "tf_daily_pl_equity": -27360.0,
-  "of_daily_pl_equity": 5364.0
+  "tf_daily_pl_equity": -52710.0,
+  "of_daily_pl_equity": -3614.0
 }
