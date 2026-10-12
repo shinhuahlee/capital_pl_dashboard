@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-10-12 14:30:34",
+  "updated_at": "2026-10-13 05:30:34",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1368223",
-      "floating_pl": "-13060",
-      "futures_close_pl": "-60320",
+      "account_balance": "1341133",
+      "floating_pl": "-3880",
+      "futures_close_pl": "0",
       "intraday_unrealized": "0",
-      "equity": "1355163",
-      "excess_margin": "934563",
-      "initial_margin": "420600",
-      "maintenance_margin": "322800",
-      "risk_indicator": "322",
+      "equity": "1337253",
+      "excess_margin": "1056853",
+      "initial_margin": "280400",
+      "maintenance_margin": "215200",
+      "risk_indicator": "477",
       "yesterday_balance": "1442183",
-      "realized_fee": "320",
-      "transaction_tax": "320",
-      "available_balance": "934563",
-      "deposit_withdrawal": "-13000"
+      "realized_fee": "0",
+      "transaction_tax": "0",
+      "available_balance": "1056853",
+      "deposit_withdrawal": "0"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "419187",
-      "account_balance": "419187",
+      "account_equity": "419100",
+      "account_balance": "419100",
       "futures_floating_pl": "0",
       "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "419187",
+      "withdrawable_margin": "419100",
       "realized_fee": "0",
-      "previous_day_balance": "419187",
+      "previous_day_balance": "419100",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -44,14 +44,14 @@
       "account": "F0200006398037",
       "future_no": "TM10",
       "buy_sell": "B",
-      "qty": "12",
+      "qty": "8",
       "qty_trade": "0",
-      "avg_price": "49453.83",
+      "avg_price": "49393.50",
       "fee": "",
       "tax": ""
     }
   ],
   "of_positions": [],
-  "tf_daily_pl_equity": -21500.0,
-  "of_daily_pl_equity": 145.0
+  "tf_daily_pl_equity": -17910.0,
+  "of_daily_pl_equity": -87.0
 }
