@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24 05:30:32",
+  "updated_at": "2026-10-26 05:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
@@ -28,10 +28,10 @@
       "futures_floating_pl": "-3498",
       "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
-      "initial_margin": "152417",
-      "maintenance_margin": "138555",
-      "risk_indicator": "261.11",
-      "withdrawable_margin": "245556",
+      "initial_margin": "150302",
+      "maintenance_margin": "136635",
+      "risk_indicator": "264.78",
+      "withdrawable_margin": "247671",
       "realized_fee": "0",
       "previous_day_balance": "401471",
       "reference_rate": "1",
@@ -72,5 +72,5 @@
     }
   ],
   "tf_daily_pl_equity": 0.0,
-  "of_daily_pl_equity": -16905.0
+  "of_daily_pl_equity": 0.0
 }
