@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26 05:30:32",
+  "updated_at": "2026-10-26 14:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
@@ -23,15 +23,15 @@
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "397973",
+      "account_equity": "396281",
       "account_balance": "401471",
-      "futures_floating_pl": "-3498",
+      "futures_floating_pl": "-5190",
       "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "150302",
       "maintenance_margin": "136635",
-      "risk_indicator": "264.78",
-      "withdrawable_margin": "247671",
+      "risk_indicator": "263.66",
+      "withdrawable_margin": "245979",
       "realized_fee": "0",
       "previous_day_balance": "401471",
       "reference_rate": "1",
@@ -62,8 +62,8 @@
       "buy_sell": "B",
       "open_interest": "1",
       "avg_price": "29171.5000",
-      "market_price": "29117.75000",
-      "unrealized_pl": "-107.50",
+      "market_price": "29091.75000",
+      "unrealized_pl": "-159.50",
       "prev_settlement": "29117.75000",
       "initial_margin": "",
       "is_option": "OF",
@@ -72,5 +72,5 @@
     }
   ],
   "tf_daily_pl_equity": 0.0,
-  "of_daily_pl_equity": 0.0
+  "of_daily_pl_equity": -1692.0
 }
