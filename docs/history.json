@@ -2616,5 +2616,22 @@
     "of_daily_pl_equity": 12620.0,
     "of_currency": "NTD(基幣)",
     "of_ref_rate": 1.0
+  },
+  {
+    "date": "2026-11-03",
+    "tf_close_pl": 0.0,
+    "tf_float_pl": -14900.0,
+    "tf_total_pl": -14900.0,
+    "of_close_pl": -8018.0,
+    "of_float_pl": 0.0,
+    "of_total_pl": -8018.0,
+    "tf_equity": 1112452.0,
+    "of_equity": 423234.0,
+    "tf_deposit_withdrawal": 0.0,
+    "of_deposit_withdrawal": 0.0,
+    "tf_daily_pl_equity": -1598.0,
+    "of_daily_pl_equity": -20040.0,
+    "of_currency": "NTD(基幣)",
+    "of_ref_rate": 1.0
   }
 ]
