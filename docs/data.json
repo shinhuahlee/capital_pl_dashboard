@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-11-05 14:30:34",
+  "updated_at": "2026-11-06 14:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1325645",
-      "floating_pl": "2800",
-      "futures_close_pl": "-52670",
+      "account_balance": "1401165",
+      "floating_pl": "-520",
+      "futures_close_pl": "76060",
       "intraday_unrealized": "0",
-      "equity": "1328445",
-      "excess_margin": "1258345",
+      "equity": "1400645",
+      "excess_margin": "1330545",
       "initial_margin": "70100",
       "maintenance_margin": "53800",
-      "risk_indicator": "1895",
-      "yesterday_balance": "1379190",
-      "realized_fee": "480",
-      "transaction_tax": "395",
-      "available_balance": "1258345",
+      "risk_indicator": "1998",
+      "yesterday_balance": "1325645",
+      "realized_fee": "300",
+      "transaction_tax": "240",
+      "available_balance": "1330545",
       "deposit_withdrawal": "0"
     }
   ],
@@ -23,17 +23,17 @@
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "425294",
-      "account_balance": "425294",
+      "account_equity": "412473",
+      "account_balance": "412473",
       "futures_floating_pl": "0",
       "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "425294",
+      "withdrawable_margin": "412473",
       "realized_fee": "0",
-      "previous_day_balance": "425294",
+      "previous_day_balance": "412473",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -46,12 +46,12 @@
       "buy_sell": "S",
       "qty": "2",
       "qty_trade": "0",
-      "avg_price": "42022.00",
+      "avg_price": "39626.00",
       "fee": "",
       "tax": ""
     }
   ],
   "of_positions": [],
-  "tf_daily_pl_equity": -3105.0,
-  "of_daily_pl_equity": 377.0
+  "tf_daily_pl_equity": 72200.0,
+  "of_daily_pl_equity": -12821.0
 }
