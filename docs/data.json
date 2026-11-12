@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-11-12 05:30:32",
+  "updated_at": "2026-11-12 14:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1389953",
-      "floating_pl": "21100",
-      "futures_close_pl": "0",
+      "account_balance": "1389027",
+      "floating_pl": "19880",
+      "futures_close_pl": "55180",
       "intraday_unrealized": "0",
-      "equity": "1411053",
-      "excess_margin": "1270853",
-      "initial_margin": "140200",
-      "maintenance_margin": "107600",
-      "risk_indicator": "1006",
-      "yesterday_balance": "1356929",
-      "realized_fee": "0",
-      "transaction_tax": "0",
-      "available_balance": "1270853",
-      "deposit_withdrawal": "0"
+      "equity": "1408907",
+      "excess_margin": "1338807",
+      "initial_margin": "70100",
+      "maintenance_margin": "53800",
+      "risk_indicator": "2010",
+      "yesterday_balance": "1354189",
+      "realized_fee": "180",
+      "transaction_tax": "162",
+      "available_balance": "1338807",
+      "deposit_withdrawal": "-20000"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "408443",
-      "account_balance": "384021",
-      "futures_floating_pl": "24422",
-      "futures_close_pl_today": "0",
-      "intraday_unrealized": "25606",
-      "initial_margin": "301681",
-      "maintenance_margin": "274202",
-      "risk_indicator": "135.39",
-      "withdrawable_margin": "81156",
+      "account_equity": "376809",
+      "account_balance": "409544",
+      "futures_floating_pl": "-32735",
+      "futures_close_pl_today": "25362",
+      "intraday_unrealized": "0",
+      "initial_margin": "150558",
+      "maintenance_margin": "136865",
+      "risk_indicator": "250.27",
+      "withdrawable_margin": "226251",
       "realized_fee": "49",
-      "previous_day_balance": "384071",
+      "previous_day_balance": "384231",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -43,10 +43,10 @@
       "market_type": "TF",
       "account": "F0200006398037",
       "future_no": "TM11",
-      "buy_sell": "B",
-      "qty": "4",
+      "buy_sell": "S",
+      "qty": "2",
       "qty_trade": "0",
-      "avg_price": "43608.50",
+      "avg_price": "44122.00",
       "fee": "",
       "tax": ""
     }
@@ -60,17 +60,17 @@
       "product_code": "MNQ",
       "product_name_ym": "微那斯達克           202612",
       "buy_sell": "B",
-      "open_interest": "2",
-      "avg_price": "28273.2500",
-      "market_price": "28459.00000",
-      "unrealized_pl": "743.00",
-      "prev_settlement": "27835.25000",
+      "open_interest": "1",
+      "avg_price": "28693.2500",
+      "market_price": "28196.00000",
+      "unrealized_pl": "-994.50",
+      "prev_settlement": "28473.25000",
       "initial_margin": "",
       "is_option": "OF",
       "strike_price": "0",
       "call_put": ""
     }
   ],
-  "tf_daily_pl_equity": 6844.0,
-  "of_daily_pl_equity": -1041.0
+  "tf_daily_pl_equity": 24698.0,
+  "of_daily_pl_equity": -32675.0
 }
