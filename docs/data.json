@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-11-20 05:30:32",
+  "updated_at": "2026-11-20 14:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1369201",
-      "floating_pl": "0",
-      "futures_close_pl": "0",
+      "account_balance": "1369131",
+      "floating_pl": "43050",
+      "futures_close_pl": "-27630",
       "intraday_unrealized": "0",
-      "equity": "1369201",
-      "excess_margin": "1369201",
-      "initial_margin": "0",
-      "maintenance_margin": "0",
-      "risk_indicator": "100",
-      "yesterday_balance": "1409219",
-      "realized_fee": "0",
-      "transaction_tax": "0",
-      "available_balance": "1369201",
+      "equity": "1412181",
+      "excess_margin": "1271981",
+      "initial_margin": "140200",
+      "maintenance_margin": "107600",
+      "risk_indicator": "1007",
+      "yesterday_balance": "1397011",
+      "realized_fee": "140",
+      "transaction_tax": "110",
+      "available_balance": "1271981",
       "deposit_withdrawal": "0"
     }
   ],
@@ -23,23 +23,35 @@
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "333612",
-      "account_balance": "333612",
+      "account_equity": "333739",
+      "account_balance": "333739",
       "futures_floating_pl": "0",
-      "futures_close_pl_today": "-1697",
+      "futures_close_pl_today": "0",
       "intraday_unrealized": "0",
       "initial_margin": "0",
       "maintenance_margin": "0",
       "risk_indicator": "",
-      "withdrawable_margin": "333612",
-      "realized_fee": "49",
-      "previous_day_balance": "335358",
+      "withdrawable_margin": "333739",
+      "realized_fee": "0",
+      "previous_day_balance": "333739",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
   ],
-  "tf_positions": [],
+  "tf_positions": [
+    {
+      "market_type": "TF",
+      "account": "F0200006398037",
+      "future_no": "TM12",
+      "buy_sell": "S",
+      "qty": "4",
+      "qty_trade": "0",
+      "avg_price": "36876.25",
+      "fee": "",
+      "tax": ""
+    }
+  ],
   "of_positions": [],
-  "tf_daily_pl_equity": -42090.0,
-  "of_daily_pl_equity": -32342.0
+  "tf_daily_pl_equity": 890.0,
+  "of_daily_pl_equity": -32215.0
 }
