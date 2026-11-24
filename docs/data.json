@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-11-24 05:30:32",
+  "updated_at": "2026-11-24 14:30:32",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1399863",
-      "floating_pl": "-142720",
-      "futures_close_pl": "0",
+      "account_balance": "1388574",
+      "floating_pl": "0",
+      "futures_close_pl": "9700",
       "intraday_unrealized": "0",
-      "equity": "1257143",
-      "excess_margin": "1116943",
-      "initial_margin": "140200",
-      "maintenance_margin": "107600",
-      "risk_indicator": "897",
-      "yesterday_balance": "1369131",
-      "realized_fee": "0",
-      "transaction_tax": "0",
-      "available_balance": "1116943",
-      "deposit_withdrawal": "0"
+      "equity": "1388574",
+      "excess_margin": "1318474",
+      "initial_margin": "70100",
+      "maintenance_margin": "53800",
+      "risk_indicator": "1981",
+      "yesterday_balance": "1395829",
+      "realized_fee": "240",
+      "transaction_tax": "190",
+      "available_balance": "1318474",
+      "deposit_withdrawal": "-16525"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "379355",
-      "account_balance": "309360",
-      "futures_floating_pl": "69995",
+      "account_equity": "381741",
+      "account_balance": "309520",
+      "futures_floating_pl": "72221",
       "futures_close_pl_today": "0",
-      "intraday_unrealized": "69995",
-      "initial_margin": "147293",
-      "maintenance_margin": "133903",
-      "risk_indicator": "257.55",
-      "withdrawable_margin": "162067",
-      "realized_fee": "49",
-      "previous_day_balance": "309409",
+      "intraday_unrealized": "3132",
+      "initial_margin": "143782",
+      "maintenance_margin": "130693",
+      "risk_indicator": "265.50",
+      "withdrawable_margin": "234827",
+      "realized_fee": "0",
+      "previous_day_balance": "309520",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -43,10 +43,10 @@
       "market_type": "TF",
       "account": "F0200006398037",
       "future_no": "TM12",
-      "buy_sell": "B",
-      "qty": "4",
+      "buy_sell": "S",
+      "qty": "2",
       "qty_trade": "0",
-      "avg_price": "40227.00",
+      "avg_price": "40324.00",
       "fee": "",
       "tax": ""
     }
@@ -62,15 +62,15 @@
       "buy_sell": "B",
       "open_interest": "1",
       "avg_price": "25760.2500",
-      "market_price": "26824.00000",
-      "unrealized_pl": "2127.50",
-      "prev_settlement": "25126.50000",
+      "market_price": "26855.50000",
+      "unrealized_pl": "2190.50",
+      "prev_settlement": "26808.00000",
       "initial_margin": "",
       "is_option": "OF",
       "strike_price": "0",
       "call_put": ""
     }
   ],
-  "tf_daily_pl_equity": -142856.0,
-  "of_daily_pl_equity": 63521.0
+  "tf_daily_pl_equity": 5100.0,
+  "of_daily_pl_equity": 65907.0
 }
