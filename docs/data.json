@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-11-25 14:30:33",
+  "updated_at": "2026-11-26 05:30:33",
   "tf_rights": [
     {
       "account": "F0200006398037",
-      "account_balance": "1325930",
-      "floating_pl": "5340",
-      "futures_close_pl": "-62140",
+      "account_balance": "1357062",
+      "floating_pl": "-35130",
+      "futures_close_pl": "0",
       "intraday_unrealized": "0",
-      "equity": "1331270",
-      "excess_margin": "1191070",
+      "equity": "1321932",
+      "excess_margin": "1181732",
       "initial_margin": "140200",
       "maintenance_margin": "107600",
-      "risk_indicator": "950",
+      "risk_indicator": "943",
       "yesterday_balance": "1391949",
-      "realized_fee": "280",
-      "transaction_tax": "224",
-      "available_balance": "1191070",
-      "deposit_withdrawal": "-3375"
+      "realized_fee": "0",
+      "transaction_tax": "0",
+      "available_balance": "1181732",
+      "deposit_withdrawal": "0"
     }
   ],
   "of_rights": [
     {
       "account": "F0200006398037",
       "currency": "NTD(基幣)",
-      "account_equity": "313542",
-      "account_balance": "313542",
-      "futures_floating_pl": "0",
+      "account_equity": "347488",
+      "account_balance": "313800",
+      "futures_floating_pl": "33688",
       "futures_close_pl_today": "0",
-      "intraday_unrealized": "0",
-      "initial_margin": "0",
-      "maintenance_margin": "0",
-      "risk_indicator": "",
-      "withdrawable_margin": "313542",
-      "realized_fee": "0",
-      "previous_day_balance": "313542",
+      "intraday_unrealized": "33688",
+      "initial_margin": "154727",
+      "maintenance_margin": "140649",
+      "risk_indicator": "224.58",
+      "withdrawable_margin": "159073",
+      "realized_fee": "50",
+      "previous_day_balance": "313850",
       "reference_rate": "1",
       "deposit_withdrawal": "0"
     }
@@ -46,12 +46,31 @@
       "buy_sell": "S",
       "qty": "4",
       "qty_trade": "0",
-      "avg_price": "38256.50",
+      "avg_price": "37244.75",
       "fee": "",
       "tax": ""
     }
   ],
-  "of_positions": [],
-  "tf_daily_pl_equity": -53929.0,
-  "of_daily_pl_equity": -68199.0
+  "of_positions": [
+    {
+      "account": "F0200006398037",
+      "exchange_code": "CME",
+      "exchange_name": "芝加哥商業交易所",
+      "product_code_ym": "MNQ    202612",
+      "product_code": "MNQ",
+      "product_name_ym": "微那斯達克           202612",
+      "buy_sell": "B",
+      "open_interest": "1",
+      "avg_price": "25584.7500",
+      "market_price": "26093.25000",
+      "unrealized_pl": "1017.00",
+      "prev_settlement": "26275.75000",
+      "initial_margin": "",
+      "is_option": "OF",
+      "strike_price": "0",
+      "call_put": ""
+    }
+  ],
+  "tf_daily_pl_equity": -9338.0,
+  "of_daily_pl_equity": 33946.0
 }
